@@ -8,7 +8,7 @@
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 The **SteamNoodles Automated Restaurant Feedback Agent** is a full-stack AI-driven system designed to automate and personalize customer feedback analysis for restaurants.  
 It features **two intelligent agents**:
 
@@ -21,7 +21,7 @@ The system consists of:
 
 ---
 
-## 🎯 Key Features
+##  Key Features
 
 ### Backend
 - FastAPI endpoints for both agents
@@ -47,9 +47,9 @@ The system consists of:
 
 ---
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
-### 1️⃣ Clone the Repository
+### 1️ Clone the Repository
 ```bash
 git clone clone https://github.com/Sajimithan/steamnoodles-feedback-agent-Sajimithan.git
 
@@ -58,7 +58,7 @@ cd Steamnoodles-feedback-agent-Sajimithan
 
 ---
 
-### 2️⃣ Backend Setup
+### 2️ Backend Setup
 
 1. **Create and activate virtual environment**
 
@@ -94,7 +94,7 @@ cd Steamnoodles-feedback-agent-Sajimithan
 
 ---
 
-### 3️⃣ Frontend Setup
+### 3️ Frontend Setup
 
 1. Navigate to frontend folder:
 
@@ -119,7 +119,7 @@ cd Steamnoodles-feedback-agent-Sajimithan
 
 ---
 
-## 🧪 How to Test the Agents
+##  How to Test the Agents
 
 ### **Feedback Response Agent**
 
@@ -161,7 +161,7 @@ cd Steamnoodles-feedback-agent-Sajimithan
 
 ---
 
-## 📊 Sample Prompts & Expected Outputs
+##  Sample Prompts & Expected Outputs
 
 | Input Example                                                  | Expected Output                                                 |
 | -------------------------------------------------------------- | --------------------------------------------------------------- |
@@ -170,7 +170,7 @@ cd Steamnoodles-feedback-agent-Sajimithan
 
 ---
 
-## 📂 Technologies Used
+##  Technologies Used
 
 - **Frontend**: React, Vite
 - **Backend**: FastAPI, pandas, matplotlib, seaborn, plotly
@@ -179,7 +179,7 @@ cd Steamnoodles-feedback-agent-Sajimithan
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 Steamnoodles-feedback-agent-Piranavan/
@@ -204,6 +204,6 @@ Steamnoodles-feedback-agent-Piranavan/
     └── node_modules/
 ```
 
-## 📄 License
+##  License
 
 MIT
