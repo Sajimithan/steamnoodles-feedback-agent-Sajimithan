@@ -1,6 +1,6 @@
 # steamnoodles-feedback-agent-Sajimithan
 
-# 🍜 SteamNoodles Automated Restaurant Feedback Agent  
+#  SteamNoodles Automated Restaurant Feedback Agent  
 *(Beyond Flavours Feedback Agent — Full Stack)*
 
 **University:** University of Moratuwa  
@@ -41,7 +41,7 @@ The system consists of:
 
 ---
 
-## 🗄 Dataset
+##  Dataset
 - **Source:** Kaggle restaurant review dataset  
 - Contains: review text, rating, sentiment, and timestamp
 
