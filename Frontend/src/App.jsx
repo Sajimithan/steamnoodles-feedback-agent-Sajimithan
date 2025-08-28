@@ -1,37 +1,77 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import RespondReview from './pages/RespondReview';
 import SentimentVisualization from './pages/SentimentVisualization';
 import SampleReviews from './pages/SampleReviews';
-import { useState } from 'react'
 import bfLogo from '/bf-logo.svg';
-import './App.css'
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+function Navigation() {
+  const location = useLocation();
+  
+  const navItems = [
+    { path: '/', label: 'Home', icon: '🏠' },
+    { path: '/respond-review', label: 'AI Response', icon: '🤖' },
+    { path: '/sentiment-visualization', label: 'Analytics', icon: '📊' },
+    { path: '/sample-reviews', label: 'Reviews', icon: '⭐' }
+  ];
 
   return (
-    <Router>
-      <div>
-        <img src={bfLogo} className="logo" alt="Beyond Flavours logo" />
-      </div>
-      
-      <nav style={{ padding: '1rem', background: '#f5f5f5', marginBottom: '2rem' }}>
-        <Link to="/" style={{ marginRight: '1rem' }}>Home</Link>
-        <Link to="/respond-review" style={{ marginRight: '1rem' }}>Respond to Review</Link>
-        <Link to="/sentiment-visualization" style={{ marginRight: '1rem' }}>Sentiment Visualization</Link>
-        <Link to="/sample-reviews">Sample Reviews</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/respond-review" element={<RespondReview />} />
-        <Route path="/sentiment-visualization" element={<SentimentVisualization />} />
-        <Route path="/sample-reviews" element={<SampleReviews />} />
-      </Routes>
-  {/* ...existing code... */}
-    </Router>
-  )
+    <nav className="nav-menu">
+      {navItems.map((item) => (
+        <Link
+          key={item.path}
+          to={item.path}
+          className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+        >
+          <span>{item.icon}</span>
+          {item.label}
+        </Link>
+      ))}
+    </nav>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Router>
+      <div className="app-container">
+        <header className="app-header">
+          <div className="header-content">
+            <div className="logo-section">
+              <img src={bfLogo} className="logo" alt="Beyond Flavours logo" />
+              <div className="brand-text">SteamNoodles AI</div>
+            </div>
+            <Navigation />
+          </div>
+        </header>
+        
+        <main className="main-content">
+          <div className="fade-in">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/respond-review" element={<RespondReview />} />
+              <Route path="/sentiment-visualization" element={<SentimentVisualization />} />
+              <Route path="/sample-reviews" element={<SampleReviews />} />
+            </Routes>
+          </div>
+        </main>
+        
+        <footer className="app-footer" style={{
+          background: 'var(--surface-color)',
+          borderTop: '1px solid var(--border-color)',
+          padding: '2rem 0',
+          textAlign: 'center',
+          color: 'var(--text-secondary)'
+        }}>
+          <div className="container">
+            <p>&copy; 2025 SteamNoodles Feedback Agent. Built with ❤️ for Beyond Flavours.</p>
+          </div>
+        </footer>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
