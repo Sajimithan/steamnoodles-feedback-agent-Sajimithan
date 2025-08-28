@@ -1,33 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Line, Doughnut } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-  TimeScale
-} from 'chart.js';
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-  TimeScale
-);
 
 const RealTimeDashboard = () => {
   const [isConnected, setIsConnected] = useState(false);
-  const [connectionStatus, setConnectionStatus] = useState('Disconnecting...');
+  const [connectionStatus, setConnectionStatus] = useState('Disconnected');
   const [sentimentData, setSentimentData] = useState({
     positive: 0,
     neutral: 0,
@@ -174,67 +149,6 @@ const RealTimeDashboard = () => {
     }
   };
 
-  // Chart configurations
-  const sentimentPieData = {
-    labels: ['Positive', 'Neutral', 'Negative'],
-    datasets: [
-      {
-        data: [sentimentData.positive, sentimentData.neutral, sentimentData.negative],
-        backgroundColor: ['#10b981', '#3b82f6', '#ef4444'],
-        borderColor: ['#059669', '#2563eb', '#dc2626'],
-        borderWidth: 2,
-      },
-    ],
-  };
-
-  const sentimentLineData = {
-    labels: sentimentHistory.map(item => 
-      new Date(item.timestamp).toLocaleTimeString()
-    ),
-    datasets: [
-      {
-        label: 'Positive %',
-        data: sentimentHistory.map(item => item.positive),
-        borderColor: '#10b981',
-        backgroundColor: 'rgba(16, 185, 129, 0.1)',
-        tension: 0.4,
-      },
-      {
-        label: 'Negative %',
-        data: sentimentHistory.map(item => item.negative),
-        borderColor: '#ef4444',
-        backgroundColor: 'rgba(239, 68, 68, 0.1)',
-        tension: 0.4,
-      },
-    ],
-  };
-
-  const chartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-        max: 100,
-      },
-    },
-  };
-
-  const pieOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'bottom',
-      },
-    },
-  };
-
   const getSentimentIcon = (sentiment) => {
     switch (sentiment) {
       case 'positive': return '😊';
@@ -316,7 +230,7 @@ const RealTimeDashboard = () => {
             </div>
           </div>
 
-          {/* Charts Section */}
+          {/* Sentiment Visualization - Simple HTML/CSS Charts */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
@@ -329,20 +243,149 @@ const RealTimeDashboard = () => {
                 <h3 style={{ marginBottom: '1rem', color: 'var(--text-primary)' }}>
                   Current Sentiment Distribution
                 </h3>
-                <div style={{ height: '300px' }}>
-                  <Doughnut data={sentimentPieData} options={pieOptions} />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  {/* Positive Bar */}
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                      <span style={{ fontSize: '0.875rem', fontWeight: '600' }}>😊 Positive</span>
+                      <span style={{ fontSize: '0.875rem', color: '#10b981' }}>{sentimentData.positive?.toFixed(1)}%</span>
+                    </div>
+                    <div style={{
+                      width: '100%',
+                      height: '8px',
+                      backgroundColor: '#e5e7eb',
+                      borderRadius: '4px',
+                      overflow: 'hidden'
+                    }}>
+                      <div style={{
+                        width: `${sentimentData.positive || 0}%`,
+                        height: '100%',
+                        backgroundColor: '#10b981',
+                        transition: 'width 0.5s ease'
+                      }}></div>
+                    </div>
+                  </div>
+
+                  {/* Neutral Bar */}
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                      <span style={{ fontSize: '0.875rem', fontWeight: '600' }}>😐 Neutral</span>
+                      <span style={{ fontSize: '0.875rem', color: '#3b82f6' }}>{sentimentData.neutral?.toFixed(1)}%</span>
+                    </div>
+                    <div style={{
+                      width: '100%',
+                      height: '8px',
+                      backgroundColor: '#e5e7eb',
+                      borderRadius: '4px',
+                      overflow: 'hidden'
+                    }}>
+                      <div style={{
+                        width: `${sentimentData.neutral || 0}%`,
+                        height: '100%',
+                        backgroundColor: '#3b82f6',
+                        transition: 'width 0.5s ease'
+                      }}></div>
+                    </div>
+                  </div>
+
+                  {/* Negative Bar */}
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                      <span style={{ fontSize: '0.875rem', fontWeight: '600' }}>😞 Negative</span>
+                      <span style={{ fontSize: '0.875rem', color: '#ef4444' }}>{sentimentData.negative?.toFixed(1)}%</span>
+                    </div>
+                    <div style={{
+                      width: '100%',
+                      height: '8px',
+                      backgroundColor: '#e5e7eb',
+                      borderRadius: '4px',
+                      overflow: 'hidden'
+                    }}>
+                      <div style={{
+                        width: `${sentimentData.negative || 0}%`,
+                        height: '100%',
+                        backgroundColor: '#ef4444',
+                        transition: 'width 0.5s ease'
+                      }}></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Sentiment Trends */}
+            {/* Sentiment History */}
             <div className="card">
               <div className="card-content">
                 <h3 style={{ marginBottom: '1rem', color: 'var(--text-primary)' }}>
                   Live Sentiment Trends
                 </h3>
-                <div style={{ height: '300px' }}>
-                  <Line data={sentimentLineData} options={chartOptions} />
+                <div style={{ 
+                  height: '200px', 
+                  display: 'flex', 
+                  alignItems: 'end', 
+                  justifyContent: 'space-between',
+                  gap: '2px',
+                  padding: '1rem',
+                  background: 'var(--background-secondary)',
+                  borderRadius: '0.5rem'
+                }}>
+                  {sentimentHistory.length > 0 ? (
+                    sentimentHistory.map((item, index) => (
+                      <div key={index} style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        flex: 1,
+                        height: '100%'
+                      }}>
+                        <div style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'end',
+                          height: '160px',
+                          gap: '1px'
+                        }}>
+                          {/* Positive bar */}
+                          <div style={{
+                            width: '20px',
+                            height: `${(item.positive / 100) * 50}px`,
+                            backgroundColor: '#10b981',
+                            borderRadius: '2px 2px 0 0'
+                          }}></div>
+                          {/* Negative bar */}
+                          <div style={{
+                            width: '20px',
+                            height: `${(item.negative / 100) * 50}px`,
+                            backgroundColor: '#ef4444',
+                            borderRadius: '0 0 2px 2px'
+                          }}></div>
+                        </div>
+                        <div style={{
+                          fontSize: '0.6rem',
+                          color: 'var(--text-secondary)',
+                          marginTop: '0.25rem',
+                          transform: 'rotate(-45deg)',
+                          transformOrigin: 'center'
+                        }}>
+                          {new Date(item.timestamp).toLocaleTimeString().slice(0, 5)}
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '100%',
+                      height: '100%',
+                      color: 'var(--text-secondary)'
+                    }}>
+                      <div style={{ textAlign: 'center' }}>
+                        <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📈</div>
+                        <p>Waiting for data...</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -417,6 +460,17 @@ const RealTimeDashboard = () => {
                     }}>
                       <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>⏱️</div>
                       <p>Waiting for live reviews...</p>
+                      <div style={{
+                        marginTop: '1rem',
+                        padding: '1rem',
+                        background: 'rgba(59, 130, 246, 0.05)',
+                        borderRadius: '0.5rem',
+                        border: '1px solid rgba(59, 130, 246, 0.1)'
+                      }}>
+                        <p style={{ fontSize: '0.875rem', margin: 0 }}>
+                          💡 Try submitting a review in the "AI Response" section to see real-time updates here!
+                        </p>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -486,6 +540,17 @@ const RealTimeDashboard = () => {
                     }}>
                       <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🔕</div>
                       <p>No notifications yet</p>
+                      <div style={{
+                        marginTop: '1rem',
+                        padding: '1rem',
+                        background: 'rgba(59, 130, 246, 0.05)',
+                        borderRadius: '0.5rem',
+                        border: '1px solid rgba(59, 130, 246, 0.1)'
+                      }}>
+                        <p style={{ fontSize: '0.875rem', margin: 0 }}>
+                          🔔 Notifications will appear here when important events occur
+                        </p>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -493,28 +558,30 @@ const RealTimeDashboard = () => {
             </div>
           </div>
 
-          {/* Connection Statistics */}
-          {Object.keys(connectionStats).length > 0 && (
-            <div className="card" style={{ marginTop: '1.5rem' }}>
-              <div className="card-content">
-                <h3 style={{ marginBottom: '1rem', color: 'var(--text-primary)' }}>
-                  📡 Connection Statistics
-                </h3>
-                <div className="stats-grid">
-                  <div className="stat-card">
-                    <div className="stat-value">{connectionStats.total_connections || 0}</div>
-                    <div className="stat-label">Active Connections</div>
-                  </div>
-                  {connectionStats.connections_by_type && Object.entries(connectionStats.connections_by_type).map(([type, count]) => (
-                    <div key={type} className="stat-card">
-                      <div className="stat-value">{count}</div>
-                      <div className="stat-label">{type.replace('_', ' ')}</div>
-                    </div>
-                  ))}
-                </div>
+          {/* Testing Section */}
+          <div className="card" style={{ marginTop: '1.5rem' }}>
+            <div className="card-content">
+              <h3 style={{ marginBottom: '1rem', color: 'var(--text-primary)' }}>
+                🧪 Test Real-Time Features
+              </h3>
+              <div style={{
+                padding: '1rem',
+                background: 'rgba(16, 185, 129, 0.05)',
+                borderRadius: '0.75rem',
+                border: '1px solid rgba(16, 185, 129, 0.1)'
+              }}>
+                <h4 style={{ margin: '0 0 0.5rem 0', color: 'var(--text-primary)' }}>
+                  How to test real-time updates:
+                </h4>
+                <ol style={{ margin: 0, paddingLeft: '1.25rem', color: 'var(--text-secondary)' }}>
+                  <li>Navigate to the "AI Response" page</li>
+                  <li>Submit a review with any rating</li>
+                  <li>Return to this dashboard to see live updates</li>
+                  <li>Try submitting negative reviews (rating 1-2) to trigger urgent notifications</li>
+                </ol>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>
