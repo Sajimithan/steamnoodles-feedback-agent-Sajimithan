@@ -1,0 +1,3 @@
+2025-08-29 02:53:00,402 - steamnoodles_api - INFO - startup_event:109 - Starting SteamNoodles Feedback Agent API
+2025-08-29 02:53:00,402 - steamnoodles_api - INFO - startup_event:110 - Processed data path: data/processed_reviews.csv
+2025-08-29 02:53:00,403 - steamnoodles_api - INFO - startup_event:111 - Raw data path: data/raw_reviews.csv
