@@ -20,7 +20,7 @@ const Home = () => {
     },
     {
       title: 'Sentiment Analytics',
-      description: 'Visualize sentiment trends over time with interactive charts and comprehensive analytics.',
+      description: 'Visualize sentiment trends over time with interactive charts and Comprehensive analytics.',
       icon: '📊',
       link: '/sentiment-visualization',
       color: 'var(--gradient-success)'
