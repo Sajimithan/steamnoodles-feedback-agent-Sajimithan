@@ -111,16 +111,34 @@ class SentimentVisualizationAgent:
 
         if len(df) == 0:
             print(f"\nNo reviews found for date range: {date_range}")
-            print("Available date range in data:")
-            print(f"From: {df['date'].min().date()} To: {df['date'].max().date()}")
-            return None
+            return None, None
 
-        # Generate the plot
-        fig = PlotGenerator.generate_sentiment_trend_plot(df, date_range)
+        # Generate chart data for Chart.js
+        sentiment_counts = df['sentiment'].value_counts()
+        chart_data = {
+            "labels": sentiment_counts.index.tolist(),
+            "datasets": [{
+                "label": "Sentiment Count",
+                "data": sentiment_counts.values.tolist(),
+                "backgroundColor": [
+                    "rgba(75, 192, 192, 0.6)" if sentiment == "positive" else
+                    "rgba(255, 206, 86, 0.6)" if sentiment == "neutral" else
+                    "rgba(255, 99, 132, 0.6)"
+                    for sentiment in sentiment_counts.index
+                ],
+                "borderColor": [
+                    "rgba(75, 192, 192, 1)" if sentiment == "positive" else
+                    "rgba(255, 206, 86, 1)" if sentiment == "neutral" else
+                    "rgba(255, 99, 132, 1)"
+                    for sentiment in sentiment_counts.index
+                ],
+                "borderWidth": 1
+            }]
+        }
 
         # Generate insights
         insights = self.generate_insights(df, date_range)
         print("\n=== Sentiment Insights ===")
         print(insights)
 
-        return fig
+        return df, chart_data

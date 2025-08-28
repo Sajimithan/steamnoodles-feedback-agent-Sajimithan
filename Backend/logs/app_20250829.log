@@ -1,0 +1,22 @@
+2025-08-29 02:53:00,402 - steamnoodles_api - INFO - startup_event:109 - Starting SteamNoodles Feedback Agent API
+2025-08-29 02:53:00,402 - steamnoodles_api - INFO - startup_event:110 - Processed data path: data/processed_reviews.csv
+2025-08-29 02:53:00,403 - steamnoodles_api - INFO - startup_event:111 - Raw data path: data/raw_reviews.csv
+2025-08-29 03:19:14,765 - steamnoodles_api - INFO - startup_event:109 - Starting SteamNoodles Feedback Agent API
+2025-08-29 03:19:14,765 - steamnoodles_api - INFO - startup_event:110 - Processed data path: data/processed_reviews.csv
+2025-08-29 03:19:14,766 - steamnoodles_api - INFO - startup_event:111 - Raw data path: data/raw_reviews.csv
+2025-08-29 03:38:12,478 - steamnoodles_api - INFO - startup_event:112 - Starting SteamNoodles Feedback Agent API
+2025-08-29 03:38:12,480 - steamnoodles_api - INFO - startup_event:113 - Processed data path: data/processed_reviews.csv
+2025-08-29 03:38:12,480 - steamnoodles_api - INFO - startup_event:114 - Raw data path: data/raw_reviews.csv
+2025-08-29 03:43:15,964 - steamnoodles_api - INFO - startup_event:112 - Starting SteamNoodles Feedback Agent API
+2025-08-29 03:43:15,965 - steamnoodles_api - INFO - startup_event:113 - Processed data path: data/processed_reviews.csv
+2025-08-29 03:43:15,965 - steamnoodles_api - INFO - startup_event:114 - Raw data path: data/raw_reviews.csv
+2025-08-29 03:48:04,137 - steamnoodles_api - INFO - startup_event:112 - Starting SteamNoodles Feedback Agent API
+2025-08-29 03:48:04,137 - steamnoodles_api - INFO - startup_event:113 - Processed data path: data/processed_reviews.csv
+2025-08-29 03:48:04,138 - steamnoodles_api - INFO - startup_event:114 - Raw data path: data/raw_reviews.csv
+2025-08-29 03:52:28,640 - steamnoodles_api - INFO - startup_event:112 - Starting SteamNoodles Feedback Agent API
+2025-08-29 03:52:28,641 - steamnoodles_api - INFO - startup_event:113 - Processed data path: data/processed_reviews.csv
+2025-08-29 03:52:28,641 - steamnoodles_api - INFO - startup_event:114 - Raw data path: data/raw_reviews.csv
+2025-08-29 03:54:54,143 - steamnoodles_api - INFO - startup_event:112 - Starting SteamNoodles Feedback Agent API
+2025-08-29 03:54:54,143 - steamnoodles_api - INFO - startup_event:113 - Processed data path: data/processed_reviews.csv
+2025-08-29 03:54:54,143 - steamnoodles_api - INFO - startup_event:114 - Raw data path: data/raw_reviews.csv
+2025-08-29 03:55:03,868 - steamnoodles_api - ERROR - websocket_sentiment_live:387 - Error in sentiment WebSocket: WebSocket is not connected. Need to call "accept" first.
