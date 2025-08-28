@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query, HTTPException
+from fastapi import FastAPI, Query, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List, Dict, Any
@@ -7,8 +7,11 @@ from agents.sentiment_visualiztion import SentimentVisualizationAgent
 from utils.data_loader import load_review_data
 from utils.data_preprocessor import preprocess_data
 from utils.logger import setup_logger, log_api_call
+from utils.websocket_manager import connection_manager, notification_service, sentiment_processor
 import os
 from dotenv import load_dotenv
+import asyncio
+import json
 
 from utils.database import DatabaseManager
 from utils.batch_processor import BatchProcessor
@@ -122,7 +125,7 @@ def startup_event():
           response_model=ResponseModel,
           summary="Generate AI Response to Customer Review",
           description="Generate a professional, context-aware response to customer feedback using AI")
-def respond_review(request: ReviewRequest):
+async def respond_review(request: ReviewRequest):
     """
     Generate an AI-powered response to customer reviews.
     
@@ -141,9 +144,35 @@ def respond_review(request: ReviewRequest):
         
         response = feedback_agent.generate_response(request.review_text, request.rating)
         
+        # Determine sentiment based on rating
+        sentiment = "positive" if request.rating >= 4 else "negative" if request.rating <= 2 else "neutral"
+        
+        # Create review data for real-time processing
+        review_data = {
+            "review_text": request.review_text,
+            "rating": request.rating,
+            "sentiment": sentiment,
+            "timestamp": time.time(),
+            "response_generated": True,
+            "response_text": response
+        }
+        
+        # Process for real-time updates
+        await sentiment_processor.process_new_review(review_data)
+        
+        # Send notification for negative reviews
+        if sentiment == "negative":
+            await notification_service.notify_negative_review(review_data)
+        
+        # Store in database
+        try:
+            db_manager.store_review_response(review_data, response)
+        except Exception as db_error:
+            logger.warning(f"Failed to store in database: {db_error}")
+        
         log_api_call(logger, "/respond_review", 
                     {"rating": request.rating, "review_length": len(request.review_text)},
-                    {"response_generated": True})
+                    {"response_generated": True, "sentiment": sentiment})
         
         return {"response": response}
     except HTTPException:
@@ -318,3 +347,135 @@ def health_check():
             "error": str(e),
             "version": "1.0.0"
         }
+
+# =============================================================================
+# WEBSOCKET ENDPOINTS FOR REAL-TIME FEATURES
+# =============================================================================
+
+@app.websocket("/ws/sentiment-live")
+async def websocket_sentiment_live(websocket: WebSocket, user_id: Optional[str] = None):
+    """WebSocket endpoint for real-time sentiment updates"""
+    await connection_manager.connect(websocket, "sentiment_live", user_id)
+    
+    try:
+        # Send initial data
+        initial_data = {
+            "event": "connected",
+            "data": {
+                "message": "Connected to live sentiment feed",
+                "user_id": user_id
+            }
+        }
+        await connection_manager.send_personal_message(websocket, initial_data)
+        
+        # Keep connection alive and handle incoming messages
+        while True:
+            try:
+                # Wait for messages from client (like ping responses)
+                data = await websocket.receive_text()
+                message = json.loads(data)
+                
+                if message.get("type") == "ping":
+                    await connection_manager.send_personal_message(websocket, {
+                        "event": "pong",
+                        "data": {"timestamp": message.get("timestamp")}
+                    })
+                    
+            except WebSocketDisconnect:
+                break
+            except Exception as e:
+                logger.error(f"Error in sentiment WebSocket: {e}")
+                break
+                
+    except WebSocketDisconnect:
+        logger.info("Sentiment WebSocket disconnected")
+    finally:
+        connection_manager.disconnect(websocket)
+
+@app.websocket("/ws/notifications")
+async def websocket_notifications(websocket: WebSocket, user_id: Optional[str] = None):
+    """WebSocket endpoint for real-time notifications"""
+    await connection_manager.connect(websocket, "notifications", user_id)
+    
+    try:
+        # Send welcome notification
+        welcome_notification = {
+            "event": "notification",
+            "data": {
+                "type": "info",
+                "title": "🔔 Notifications Connected",
+                "message": "You will now receive real-time notifications",
+                "priority": "low"
+            }
+        }
+        await connection_manager.send_personal_message(websocket, welcome_notification)
+        
+        # Keep connection alive
+        while True:
+            try:
+                data = await websocket.receive_text()
+                message = json.loads(data)
+                
+                # Handle client actions
+                if message.get("type") == "mark_read":
+                    # Handle marking notifications as read
+                    notification_id = message.get("notification_id")
+                    logger.info(f"Notification {notification_id} marked as read by user {user_id}")
+                    
+            except WebSocketDisconnect:
+                break
+            except Exception as e:
+                logger.error(f"Error in notifications WebSocket: {e}")
+                break
+                
+    except WebSocketDisconnect:
+        logger.info("Notifications WebSocket disconnected")
+    finally:
+        connection_manager.disconnect(websocket)
+
+@app.websocket("/ws/analytics")
+async def websocket_analytics(websocket: WebSocket, user_id: Optional[str] = None):
+    """WebSocket endpoint for real-time analytics updates"""
+    await connection_manager.connect(websocket, "analytics", user_id)
+    
+    try:
+        # Send initial analytics data
+        initial_analytics = {
+            "event": "analytics_update",
+            "data": {
+                "message": "Connected to live analytics feed",
+                "connections": connection_manager.get_connection_stats(),
+                "timestamp": time.time()
+            }
+        }
+        await connection_manager.send_personal_message(websocket, initial_analytics)
+        
+        # Keep connection alive
+        while True:
+            try:
+                data = await websocket.receive_text()
+                # Handle any analytics-specific messages
+                
+            except WebSocketDisconnect:
+                break
+            except Exception as e:
+                logger.error(f"Error in analytics WebSocket: {e}")
+                break
+                
+    except WebSocketDisconnect:
+        logger.info("Analytics WebSocket disconnected")
+    finally:
+        connection_manager.disconnect(websocket)
+
+@app.get("/api/websocket/stats",
+         summary="Get WebSocket connection statistics",
+         description="Returns information about active WebSocket connections")
+async def get_websocket_stats():
+    """Get statistics about WebSocket connections"""
+    return connection_manager.get_connection_stats()
+
+# =============================================================================
+# ENHANCED ENDPOINTS WITH REAL-TIME FEATURES
+# =============================================================================
+
+# Update the respond_review endpoint to include real-time features

@@ -4,6 +4,14 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   const features = [
     {
+      title: '🔴 Real-Time Dashboard',
+      description: 'Monitor live sentiment updates, notifications, and analytics in real-time with WebSocket connectivity.',
+      icon: '📡',
+      link: '/real-time',
+      color: 'var(--gradient-danger)',
+      badge: 'NEW'
+    },
+    {
       title: 'AI-Powered Responses',
       description: 'Generate professional, context-aware responses to customer reviews using advanced AI technology.',
       icon: '🤖',
@@ -114,6 +122,23 @@ const Home = () => {
                 animationDelay: `${index * 0.2}s`
               }}
             >
+              {feature.badge && (
+                <div style={{
+                  position: 'absolute',
+                  top: '1rem',
+                  right: '1rem',
+                  background: 'linear-gradient(135deg, #ef4444, #dc2626)',
+                  color: 'white',
+                  padding: '0.25rem 0.75rem',
+                  borderRadius: '1rem',
+                  fontSize: '0.75rem',
+                  fontWeight: '700',
+                  animation: 'pulse 2s infinite',
+                  zIndex: 1
+                }}>
+                  {feature.badge}
+                </div>
+              )}
               <div className="card-content">
                 <div style={{
                   fontSize: '3rem',

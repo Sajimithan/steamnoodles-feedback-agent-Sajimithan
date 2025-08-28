@@ -166,3 +166,33 @@ class DatabaseManager:
                 }
                 for row in results
             }
+    
+    def store_review_response(self, review_data: Dict, response_text: str) -> int:
+        """Store review and its AI response"""
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            
+            # Insert review
+            cursor.execute('''
+                INSERT INTO reviews (review_text, rating, sentiment, source)
+                VALUES (?, ?, ?, ?)
+            ''', (
+                review_data['review_text'],
+                review_data['rating'],
+                review_data['sentiment'],
+                'realtime_api'
+            ))
+            
+            review_id = cursor.lastrowid
+            
+            # Insert AI response
+            cursor.execute('''
+                INSERT INTO ai_responses (review_id, response_text, model_used)
+                VALUES (?, ?, ?)
+            ''', (
+                review_id,
+                response_text,
+                'groq_llama'
+            ))
+            
+            return review_id

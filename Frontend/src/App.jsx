@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import RespondReview from './pages/RespondReview';
 import SentimentVisualization from './pages/SentimentVisualization';
 import SampleReviews from './pages/SampleReviews';
+import RealTimeDashboard from './pages/RealTimeDashboard';
 import bfLogo from '/bf-logo.svg';
 import './App.css';
 
@@ -12,6 +13,7 @@ function Navigation() {
   
   const navItems = [
     { path: '/', label: 'Home', icon: '🏠' },
+    { path: '/real-time', label: 'Live Dashboard', icon: '📡' },
     { path: '/respond-review', label: 'AI Response', icon: '🤖' },
     { path: '/sentiment-visualization', label: 'Analytics', icon: '📊' },
     { path: '/sample-reviews', label: 'Reviews', icon: '⭐' }
@@ -51,6 +53,7 @@ function App() {
           <div className="fade-in">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/real-time" element={<RealTimeDashboard />} />
               <Route path="/respond-review" element={<RespondReview />} />
               <Route path="/sentiment-visualization" element={<SentimentVisualization />} />
               <Route path="/sample-reviews" element={<SampleReviews />} />
