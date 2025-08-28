@@ -1,7 +1,7 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional, List, Dict, Any
 from agents.feedback_response import FeedbackResponseAgent
 from agents.sentiment_visualiztion import SentimentVisualizationAgent
 from utils.data_loader import load_review_data
@@ -46,24 +46,65 @@ def startup_event():
 
 @app.post("/respond_review")
 def respond_review(request: ReviewRequest):
-    response = feedback_agent.generate_response(request.review_text, request.rating)
-    return {"response": response}
+    try:
+        if not request.review_text.strip():
+            raise HTTPException(status_code=400, detail="Review text cannot be empty")
+        if request.rating < 1 or request.rating > 5:
+            raise HTTPException(status_code=400, detail="Rating must be between 1 and 5")
+        
+        response = feedback_agent.generate_response(request.review_text, request.rating)
+        return {"response": response}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error generating response: {str(e)}")
 
 @app.post("/visualize_sentiment")
 def visualize_sentiment(request: VisualizationRequest):
-    fig = viz_agent.generate_visualization(request.date_range)
-    if fig is not None:
-        # For demo, just return a success message
-        return {"message": "Visualization generated."}
-    else:
-        return {"error": "No visualization generated - check date range and try again"}
+    try:
+        if not request.date_range.strip():
+            raise HTTPException(status_code=400, detail="Date range cannot be empty")
+        
+        data, chart_data = viz_agent.generate_visualization(request.date_range)
+        if data is not None and chart_data is not None:
+            return {
+                "success": True,
+                "chart_data": chart_data,
+                "summary": {
+                    "total_reviews": len(data),
+                    "sentiment_counts": data['sentiment'].value_counts().to_dict(),
+                    "date_range": request.date_range
+                }
+            }
+        else:
+            raise HTTPException(status_code=404, detail="No data found for the specified date range")
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error generating visualization: {str(e)}")
 
 @app.get("/sample_reviews")
 def sample_reviews(count: int = Query(3, ge=1, le=10)):
-    df = load_review_data(processed_data_path)
-    samples = df.sample(count)
-    reviews = [
-        {"rating": row["rating"], "review_text": row["review_text"]}
-        for _, row in samples.iterrows()
-    ]
-    return {"reviews": reviews}
+    try:
+        if not os.path.exists(processed_data_path):
+            raise HTTPException(status_code=404, detail="Processed data file not found")
+        
+        df = load_review_data(processed_data_path)
+        if len(df) == 0:
+            raise HTTPException(status_code=404, detail="No review data available")
+        
+        sample_count = min(count, len(df))
+        samples = df.sample(sample_count)
+        reviews = [
+            {
+                "rating": int(row["rating"]), 
+                "review_text": row["review_text"],
+                "sentiment": row["sentiment"]
+            }
+            for _, row in samples.iterrows()
+        ]
+        return {"reviews": reviews, "total_available": len(df)}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error fetching sample reviews: {str(e)}")
