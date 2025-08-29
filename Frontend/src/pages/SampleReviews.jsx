@@ -114,7 +114,10 @@ const SampleReviews = () => {
     <div className="page-container">
       <div className="card">
         <div className="card-header">
-          <h1 className="card-title">Sample Reviews</h1>
+          <h1 className="card-title">
+            <span className="icon icon-star"></span>
+            Sample Reviews
+          </h1>
           <p className="card-subtitle">
             Browse and explore sample customer reviews with sentiment analysis.
           </p>
@@ -156,7 +159,10 @@ const SampleReviews = () => {
           }}>
             {/* Search Input */}
             <div className="form-group">
-              <label className="form-label">Search Reviews</label>
+              <label className="form-label">
+                <span className="icon icon-search"></span>
+                Search Reviews
+              </label>
               <input
                 type="text"
                 className="form-input"
@@ -168,7 +174,10 @@ const SampleReviews = () => {
 
             {/* Sentiment Filter */}
             <div className="form-group">
-              <label className="form-label">Filter by Sentiment</label>
+              <label className="form-label">
+                <span className="icon icon-filter"></span>
+                Filter by Sentiment
+              </label>
               <select
                 className="form-input"
                 value={selectedSentiment}

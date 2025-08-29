@@ -12,11 +12,11 @@ function Navigation() {
   const location = useLocation();
   
   const navItems = [
-    { path: '/', label: 'Home', icon: '' },
-    { path: '/real-time', label: 'Live Kitchen', icon: '', badge: 'LIVE' },
-    { path: '/respond-review', label: 'Guest Response', icon: '' },
-    { path: '/sentiment-visualization', label: 'Guest Insights', icon: '' },
-    { path: '/sample-reviews', label: 'Reviews', icon: '' }
+    { path: '/', label: 'Home', icon: 'icon-home' },
+    { path: '/real-time', label: 'Live Kitchen', icon: 'icon-live', badge: 'LIVE' },
+    { path: '/respond-review', label: 'Guest Response', icon: 'icon-chat' },
+    { path: '/sentiment-visualization', label: 'Guest Insights', icon: 'icon-chart' },
+    { path: '/sample-reviews', label: 'Reviews', icon: 'icon-star' }
   ];
 
   return (
@@ -27,7 +27,7 @@ function Navigation() {
           to={item.path}
           className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
         >
-          <span>{item.icon}</span>
+          <span className={`icon ${item.icon}`}></span>
           {item.label}
           {item.badge && (
             <span style={{

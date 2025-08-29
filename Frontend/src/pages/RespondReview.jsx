@@ -50,7 +50,10 @@ const RespondReview = () => {
     <div className="page-container">
       <div className="card">
         <div className="card-header">
-          <h1 className="card-title">🤖 AI Response Generator</h1>
+          <h1 className="card-title">
+            <span className="icon icon-chat"></span>
+            AI Response Generator
+          </h1>
           <p className="card-subtitle">
             Generate professional, context-aware responses to customer reviews using advanced AI technology.
           </p>

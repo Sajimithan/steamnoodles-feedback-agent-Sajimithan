@@ -172,7 +172,10 @@ const RealTimeDashboard = () => {
     <div className="page-container">
       <div className="card">
         <div className="card-header">
-          <h1 className="card-title">Real-Time Dashboard</h1>
+          <h1 className="card-title">
+            <span className="icon icon-live"></span>
+            Real-Time Dashboard
+          </h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <div style={{
               display: 'flex',

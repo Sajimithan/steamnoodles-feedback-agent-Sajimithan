@@ -6,7 +6,7 @@ const Home = () => {
     {
       title: 'Live Kitchen Insights',
       description: 'Monitor guest feedback in real-time as it comes in. Watch sentiment updates, notifications, and guest satisfaction metrics live.',
-      icon: '',
+      icon: 'icon-live',
       link: '/real-time',
       color: 'var(--gradient-golden)',
       badge: 'LIVE'
@@ -14,42 +14,44 @@ const Home = () => {
     {
       title: 'Guest Response Helper',
       description: 'Craft thoughtful, personalized responses to guest reviews that reflect your restaurant\'s warm hospitality and care.',
-      icon: '',
+      icon: 'icon-chat',
       link: '/respond-review',
       color: 'var(--gradient-warm)'
     },
     {
       title: 'Guest Sentiment Insights',
       description: 'Understand how your guests really feel about their dining experience through detailed sentiment analysis and trends.',
-      icon: '',
+      icon: 'icon-chart',
       link: '/sentiment-visualization',
       color: 'var(--gradient-fresh)'
     },
     {
       title: 'Guest Reviews Collection',
       description: 'Browse through guest reviews and feedback to understand what makes your restaurant special to your customers.',
-      icon: '',
+      icon: 'icon-star',
       link: '/sample-reviews',
       color: 'var(--gradient-spicy)'
     }
   ];
 
   const stats = [
-    { label: 'Guest Reviews Analyzed', value: '19,898+', icon: '' },
-    { label: 'Thoughtful Responses', value: '15,000+', icon: '' },
-    { label: 'Guest Satisfaction', value: '98%', icon: '' },
-    { label: 'Response Time', value: '< 2s', icon: '' }
+    { label: 'Guest Reviews Analyzed', value: '19,898+', icon: 'icon-star' },
+    { label: 'Thoughtful Responses', value: '15,000+', icon: 'icon-chat' },
+    { label: 'Guest Satisfaction', value: '98%', icon: 'icon-positive' },
+    { label: 'Response Time', value: '< 2s', icon: 'icon-live' }
   ];
 
   return (
     <div className="container">
       {/* Hero Section */}
-      <div className="hero-section" style={{
+      <div className="hero-section hero-pattern" style={{
         textAlign: 'center',
         padding: '4rem 0',
         background: 'linear-gradient(135deg, rgba(217, 119, 6, 0.05) 0%, rgba(220, 38, 38, 0.03) 100%)',
         borderRadius: '2rem',
-        marginBottom: '4rem'
+        marginBottom: '4rem',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
         <h1 style={{
           fontSize: '3.5rem',
@@ -59,8 +61,13 @@ const Home = () => {
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
           marginBottom: '1.5rem',
-          letterSpacing: '-0.02em'
+          letterSpacing: '-0.02em',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '1rem'
         }}>
+          <span className="icon icon-steam" style={{ fontSize: '3rem', color: '#d97706' }}></span>
           SteamNoodles Guest Insights
         </h1>
         <p style={{
@@ -74,10 +81,24 @@ const Home = () => {
           and detailed sentiment insights that help you serve better.
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link to="/respond-review" className="btn btn-primary" style={{ fontSize: '1.1rem', padding: '1rem 2rem' }}>
+          <Link to="/respond-review" className="btn btn-primary" style={{ 
+            fontSize: '1.1rem', 
+            padding: '1rem 2rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            <span className="icon icon-chat"></span>
             Get Started
           </Link>
-          <Link to="/sentiment-visualization" className="btn btn-secondary" style={{ fontSize: '1.1rem', padding: '1rem 2rem' }}>
+          <Link to="/sentiment-visualization" className="btn btn-secondary" style={{ 
+            fontSize: '1.1rem', 
+            padding: '1rem 2rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            <span className="icon icon-chart"></span>
             View Insights
           </Link>
           <Link to="/real-time" className="btn btn-success" style={{ 
@@ -87,8 +108,17 @@ const Home = () => {
             alignItems: 'center',
             gap: '0.5rem'
           }}>
+            <span className="icon icon-live"></span>
             Live Kitchen
           </Link>
+        </div>
+        
+        {/* Decorative elements */}
+        <div className="decorative-chopsticks">
+          <span className="icon icon-chopsticks" style={{ fontSize: '3rem', color: 'rgba(217, 119, 6, 0.1)' }}></span>
+        </div>
+        <div className="decorative-steam">
+          <span className="icon icon-steam" style={{ fontSize: '2rem', color: 'rgba(217, 119, 6, 0.1)' }}></span>
         </div>
       </div>
 
@@ -96,7 +126,9 @@ const Home = () => {
       <div className="stats-grid">
         {stats.map((stat, index) => (
           <div key={index} className="stat-card slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-            <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{stat.icon}</div>
+            <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>
+              <span className={`icon ${stat.icon}`} style={{ fontSize: '2rem' }}></span>
+            </div>
             <div className="stat-value">{stat.value}</div>
             <div className="stat-label">{stat.label}</div>
           </div>
@@ -181,7 +213,11 @@ const Home = () => {
                     justifyContent: 'center',
                     boxShadow: 'var(--shadow-warm)'
                   }}>
-                    {feature.icon}
+                    <span className={`icon ${feature.icon}`} style={{ 
+                      fontSize: '1.8rem', 
+                      color: 'white',
+                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
+                    }}></span>
                   </div>
                   <h3 style={{
                     fontSize: '1.5rem',

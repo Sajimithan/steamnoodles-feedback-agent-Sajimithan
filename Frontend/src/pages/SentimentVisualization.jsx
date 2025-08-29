@@ -65,7 +65,10 @@ const SentimentVisualization = () => {
     <div className="page-container">
       <div className="card">
         <div className="card-header">
-          <h1 className="card-title">Sentiment Analytics</h1>
+          <h1 className="card-title">
+            <span className="icon icon-chart"></span>
+            Sentiment Analytics
+          </h1>
           <p className="card-subtitle">
             Analyze sentiment trends and patterns in customer reviews over time.
           </p>
