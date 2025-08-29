@@ -5,18 +5,18 @@ import RespondReview from './pages/RespondReview';
 import SentimentVisualization from './pages/SentimentVisualization';
 import SampleReviews from './pages/SampleReviews';
 import RealTimeDashboard from './pages/RealTimeDashboard';
-//import bfLogo from '/bf-logo.svg';
+import bfLogo from '/bf-logo.svg';
 import './App.css';
 
 function Navigation() {
   const location = useLocation();
   
   const navItems = [
-    { path: '/', label: 'Home', icon: 'icon-home' },
-    { path: '/real-time', label: 'Live Kitchen', icon: 'icon-live', badge: 'LIVE' },
-    { path: '/respond-review', label: 'Guest Response', icon: 'icon-chat' },
-    { path: '/sentiment-visualization', label: 'Guest Insights', icon: 'icon-chart' },
-    { path: '/sample-reviews', label: 'Reviews', icon: 'icon-star' }
+    { path: '/', label: 'Home', icon: '' },
+    { path: '/real-time', label: 'Live Kitchen', icon: '', badge: 'LIVE' },
+    { path: '/respond-review', label: 'Guest Response', icon: '' },
+    { path: '/sentiment-visualization', label: 'Guest Insights', icon: '' },
+    { path: '/sample-reviews', label: 'Reviews', icon: '' }
   ];
 
   return (
@@ -27,7 +27,7 @@ function Navigation() {
           to={item.path}
           className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
         >
-          <span className={`icon ${item.icon}`}></span>
+          <span>{item.icon}</span>
           {item.label}
           {item.badge && (
             <span style={{
