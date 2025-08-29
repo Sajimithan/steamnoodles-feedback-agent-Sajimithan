@@ -112,7 +112,7 @@ const SampleReviews = () => {
 
   return (
     <div className="page-container">
-      <div className="card feature-card-reviews">
+      <div className="card">
         <div className="card-header">
           <h1 className="card-title">
             <span className="icon icon-star"></span>
@@ -323,11 +323,7 @@ const SampleReviews = () => {
               padding: '3rem',
               color: 'var(--text-secondary)'
             }}>
-              <div className="empty-state-illustration review-cards-bg" style={{
-                margin: '0 auto 2rem',
-                width: '200px',
-                height: '150px'
-              }}></div>
+              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}></div>
               <h3 style={{ marginBottom: '0.5rem', color: 'var(--text-primary)' }}>
                 No Reviews Found
               </h3>

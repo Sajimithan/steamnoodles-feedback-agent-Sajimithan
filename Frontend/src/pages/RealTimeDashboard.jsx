@@ -170,7 +170,7 @@ const RealTimeDashboard = () => {
 
   return (
     <div className="page-container">
-      <div className="card feature-card-live">
+      <div className="card">
         <div className="card-header">
           <h1 className="card-title">
             <span className="icon icon-live"></span>

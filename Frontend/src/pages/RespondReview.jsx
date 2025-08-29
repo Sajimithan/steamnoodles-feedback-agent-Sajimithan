@@ -48,7 +48,7 @@ const RespondReview = () => {
 
   return (
     <div className="page-container">
-      <div className="card feature-card-response">
+      <div className="card">
         <div className="card-header">
           <h1 className="card-title">
             <span className="icon icon-chat"></span>
