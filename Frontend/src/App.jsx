@@ -13,9 +13,9 @@ function Navigation() {
   
   const navItems = [
     { path: '/', label: 'Home', icon: '🏠' },
-    { path: '/real-time', label: 'Live Dashboard', icon: '📡' },
-    { path: '/respond-review', label: 'AI Response', icon: '🤖' },
-    { path: '/sentiment-visualization', label: 'Analytics', icon: '📊' },
+    { path: '/real-time', label: 'Live Kitchen', icon: '�‍🍳', badge: 'LIVE' },
+    { path: '/respond-review', label: 'Guest Response', icon: '💬' },
+    { path: '/sentiment-visualization', label: 'Guest Insights', icon: '�' },
     { path: '/sample-reviews', label: 'Reviews', icon: '⭐' }
   ];
 
@@ -29,6 +29,20 @@ function Navigation() {
         >
           <span>{item.icon}</span>
           {item.label}
+          {item.badge && (
+            <span style={{
+              background: 'var(--accent-color)',
+              color: 'white',
+              fontSize: '0.7rem',
+              padding: '0.2rem 0.5rem',
+              borderRadius: '8px',
+              fontWeight: '700',
+              marginLeft: '0.5rem',
+              animation: 'pulse 2s infinite'
+            }}>
+              {item.badge}
+            </span>
+          )}
         </Link>
       ))}
     </nav>
@@ -43,7 +57,7 @@ function App() {
           <div className="header-content">
             <div className="logo-section">
               <img src={bfLogo} className="logo" alt="Beyond Flavours logo" />
-              <div className="brand-text">SteamNoodles AI</div>
+              <div className="brand-text">SteamNoodles Insights</div>
             </div>
             <Navigation />
           </div>
@@ -62,14 +76,24 @@ function App() {
         </main>
         
         <footer className="app-footer" style={{
-          background: 'var(--surface-color)',
-          borderTop: '1px solid var(--border-color)',
-          padding: '2rem 0',
+          background: 'rgba(255, 255, 255, 0.9)',
+          backdropFilter: 'blur(20px)',
+          borderTop: '1px solid var(--border-accent)',
+          padding: '2.5rem 0',
           textAlign: 'center',
           color: 'var(--text-secondary)'
         }}>
           <div className="container">
-            <p>&copy; 2025 SteamNoodles Feedback Agent. Built with ❤️ for Beyond Flavours.</p>
+            <p style={{
+              background: 'var(--gradient-golden)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              fontWeight: '600',
+              margin: 0
+            }}>
+              &copy; 2025 SteamNoodles Guest Insights • Crafted with 🍜 for Beyond Flavours
+            </p>
           </div>
         </footer>
       </div>

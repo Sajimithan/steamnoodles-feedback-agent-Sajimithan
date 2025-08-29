@@ -4,41 +4,41 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   const features = [
     {
-      title: '🔴 Real-Time Dashboard',
-      description: 'Monitor live sentiment updates, notifications, and analytics in real-time with WebSocket connectivity.',
-      icon: '📡',
+      title: '�‍🍳 Live Kitchen Insights',
+      description: 'Monitor guest feedback in real-time as it comes in. Watch sentiment updates, notifications, and guest satisfaction metrics live.',
+      icon: '�',
       link: '/real-time',
-      color: 'var(--gradient-danger)',
-      badge: 'NEW'
+      color: 'var(--gradient-golden)',
+      badge: 'LIVE'
     },
     {
-      title: 'AI-Powered Responses',
-      description: 'Generate professional, context-aware responses to customer reviews using advanced AI technology.',
-      icon: '🤖',
+      title: '💬 Guest Response Helper',
+      description: 'Craft thoughtful, personalized responses to guest reviews that reflect your restaurant\'s warm hospitality and care.',
+      icon: '🍜',
       link: '/respond-review',
-      color: 'var(--gradient-primary)'
+      color: 'var(--gradient-warm)'
     },
     {
-      title: 'Sentiment Analytics',
-      description: 'Visualize sentiment trends over time with interactive charts and comprehensive analytics.',
-      icon: '📊',
+      title: '📈 Guest Sentiment Insights',
+      description: 'Understand how your guests really feel about their dining experience through detailed sentiment analysis and trends.',
+      icon: '❤️',
       link: '/sentiment-visualization',
-      color: 'var(--gradient-success)'
+      color: 'var(--gradient-fresh)'
     },
     {
-      title: 'Review Samples',
-      description: 'Browse through sample reviews with sentiment analysis and rating insights.',
-      icon: '⭐',
+      title: '⭐ Guest Reviews Collection',
+      description: 'Browse through guest reviews and feedback to understand what makes your restaurant special to your customers.',
+      icon: '🌟',
       link: '/sample-reviews',
-      color: 'var(--gradient-secondary)'
+      color: 'var(--gradient-spicy)'
     }
   ];
 
   const stats = [
-    { label: 'Reviews Processed', value: '19,898+', icon: '📝' },
-    { label: 'AI Responses Generated', value: '15,000+', icon: '💬' },
-    { label: 'Customer Satisfaction', value: '98%', icon: '😊' },
-    { label: 'Average Response Time', value: '< 2s', icon: '⚡' }
+    { label: 'Guest Reviews Analyzed', value: '19,898+', icon: '📝' },
+    { label: 'Thoughtful Responses', value: '15,000+', icon: '�' },
+    { label: 'Guest Satisfaction', value: '98%', icon: '😊' },
+    { label: 'Response Time', value: '< 2s', icon: '⚡' }
   ];
 
   return (
@@ -46,38 +46,71 @@ const Home = () => {
       {/* Hero Section */}
       <div className="hero-section" style={{
         textAlign: 'center',
-        padding: '4rem 0',
-        background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)',
-        borderRadius: '2rem',
-        marginBottom: '4rem'
+        padding: '4rem 2rem',
+        background: 'linear-gradient(135deg, rgba(217, 119, 6, 0.05) 0%, rgba(220, 38, 38, 0.03) 50%, rgba(5, 150, 105, 0.05) 100%)',
+        borderRadius: '24px',
+        marginBottom: '4rem',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
+        <div style={{
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+          fontSize: '3rem',
+          opacity: '0.1',
+          animation: 'float 3s ease-in-out infinite'
+        }}>🍜</div>
+        <div style={{
+          position: 'absolute',
+          bottom: '20px',
+          left: '20px',
+          fontSize: '2rem',
+          opacity: '0.1',
+          animation: 'float 3s ease-in-out infinite 1s'
+        }}>🥢</div>
+        
         <h1 style={{
           fontSize: '3.5rem',
           fontWeight: '800',
-          background: 'var(--gradient-primary)',
+          background: 'var(--gradient-golden)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
-          marginBottom: '1.5rem'
+          marginBottom: '1.5rem',
+          letterSpacing: '-0.02em'
         }}>
-          SteamNoodles AI Agent
+          SteamNoodles Guest Insights
         </h1>
         <p style={{
-          fontSize: '1.25rem',
+          fontSize: '1.3rem',
           color: 'var(--text-secondary)',
-          maxWidth: '600px',
-          margin: '0 auto 2rem',
-          lineHeight: '1.7'
+          maxWidth: '650px',
+          margin: '0 auto 2.5rem',
+          lineHeight: '1.7',
+          fontWeight: '400'
         }}>
-          Transform your restaurant's customer feedback management with AI-powered response generation 
-          and advanced sentiment analysis.
+          Understanding your guests' dining experience through thoughtful feedback analysis. 
+          Helping you respond with the warmth and care that makes every meal memorable.
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link to="/respond-review" className="btn btn-primary" style={{ fontSize: '1.1rem', padding: '1rem 2rem' }}>
-            🚀 Get Started
+          <Link to="/respond-review" className="btn btn-primary" style={{ 
+            fontSize: '1.1rem', 
+            padding: '1.25rem 2.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            🍽️ Start Responding to Guests
           </Link>
-          <Link to="/sentiment-visualization" className="btn btn-secondary" style={{ fontSize: '1.1rem', padding: '1rem 2rem' }}>
-            📊 View Analytics
+          <Link to="/real-time" className="btn btn-secondary" style={{ 
+            fontSize: '1.1rem', 
+            padding: '1.25rem 2.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            �‍🍳 Live Kitchen Insights
           </Link>
         </div>
       </div>
@@ -96,14 +129,28 @@ const Home = () => {
       {/* Features Section */}
       <div style={{ marginBottom: '4rem' }}>
         <h2 style={{
-          fontSize: '2.5rem',
+          fontSize: '2.75rem',
           fontWeight: '700',
           textAlign: 'center',
-          marginBottom: '3rem',
-          color: 'var(--text-primary)'
+          marginBottom: '1rem',
+          background: 'var(--gradient-golden)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+          letterSpacing: '-0.02em'
         }}>
-          Powerful Features
+          What Makes Us Special
         </h2>
+        <p style={{
+          textAlign: 'center',
+          fontSize: '1.2rem',
+          color: 'var(--text-secondary)',
+          marginBottom: '3rem',
+          maxWidth: '600px',
+          margin: '0 auto 3rem'
+        }}>
+          Just like our carefully crafted dishes, every feature is designed with attention to detail and care for your restaurant's success.
+        </p>
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
