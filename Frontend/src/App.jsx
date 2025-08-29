@@ -5,7 +5,7 @@ import RespondReview from './pages/RespondReview';
 import SentimentVisualization from './pages/SentimentVisualization';
 import SampleReviews from './pages/SampleReviews';
 import RealTimeDashboard from './pages/RealTimeDashboard';
-//import bfLogo from '/bf-logo.svg';
+import bfLogo from '/bf-logo.svg';
 import './App.css';
 
 function Navigation() {
