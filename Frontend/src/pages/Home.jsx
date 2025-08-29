@@ -44,15 +44,28 @@ const Home = () => {
   return (
     <div className="container">
       {/* Hero Section */}
-      <div className="hero-section hero-pattern" style={{
+      <div className="hero-section hero-background noodle-pattern" style={{
         textAlign: 'center',
         padding: '4rem 0',
-        background: 'linear-gradient(135deg, rgba(217, 119, 6, 0.05) 0%, rgba(220, 38, 38, 0.03) 100%)',
         borderRadius: '2rem',
         marginBottom: '4rem',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        minHeight: '500px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
       }}>
+        <div style={{
+          position: 'relative',
+          zIndex: 2,
+          background: 'rgba(255, 255, 255, 0.95)',
+          backdropFilter: 'blur(10px)',
+          borderRadius: '2rem',
+          padding: '3rem',
+          margin: '0 2rem',
+          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)'
+        }}>
         <h1 style={{
           fontSize: '3.5rem',
           fontWeight: '800',
@@ -112,6 +125,7 @@ const Home = () => {
             Live Kitchen
           </Link>
         </div>
+        </div>
         
         {/* Decorative elements */}
         <div className="decorative-chopsticks">
@@ -136,7 +150,16 @@ const Home = () => {
       </div>
 
       {/* Features Section */}
-      <div style={{ marginBottom: '4rem' }}>
+      <div style={{ marginBottom: '4rem', position: 'relative' }}>
+        <div className="bowl-illustration" style={{
+          position: 'absolute',
+          top: '-50px',
+          right: '50px',
+          width: '100px',
+          height: '100px',
+          opacity: 0.1,
+          zIndex: 0
+        }}></div>
         <h2 style={{
           fontSize: '2.75rem',
           fontWeight: '700',
@@ -146,7 +169,9 @@ const Home = () => {
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
-          letterSpacing: '-0.02em'
+          letterSpacing: '-0.02em',
+          position: 'relative',
+          zIndex: 1
         }}>
           What Makes Us Special
         </h2>
@@ -165,11 +190,20 @@ const Home = () => {
           gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
           gap: '2rem'
         }}>
-          {features.map((feature, index) => (
+          {features.map((feature, index) => {
+            const getBackgroundClass = (title) => {
+              if (title.includes('Live Kitchen')) return 'feature-card-live';
+              if (title.includes('Response')) return 'feature-card-response';
+              if (title.includes('Sentiment')) return 'feature-card-insights';
+              if (title.includes('Reviews')) return 'feature-card-reviews';
+              return '';
+            };
+            
+            return (
             <Link
               key={index}
               to={feature.link}
-              className="card"
+              className={`card ${getBackgroundClass(feature.title)}`}
               style={{
                 textDecoration: 'none',
                 color: 'inherit',
@@ -237,7 +271,8 @@ const Home = () => {
                 </p>
               </div>
             </Link>
-          ))}
+            );
+          })}
         </div>
       </div>
 

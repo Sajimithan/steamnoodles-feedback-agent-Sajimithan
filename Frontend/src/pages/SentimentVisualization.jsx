@@ -63,7 +63,7 @@ const SentimentVisualization = () => {
 
   return (
     <div className="page-container">
-      <div className="card">
+      <div className="card feature-card-insights">
         <div className="card-header">
           <h1 className="card-title">
             <span className="icon icon-chart"></span>
@@ -318,6 +318,20 @@ const SentimentVisualization = () => {
                   </div>
                 </div>
               )}
+            </div>
+          )}
+          
+          {/* Empty State */}
+          {!loading && !chartData && !error && (
+            <div className="empty-state">
+              <div className="empty-state-illustration data-visualization-bg"></div>
+              <h3 style={{ margin: '0 0 1rem', color: 'var(--text-primary)' }}>
+                Ready to Analyze Sentiment
+              </h3>
+              <p style={{ margin: 0, maxWidth: '400px', marginLeft: 'auto', marginRight: 'auto' }}>
+                Select a date range above to view sentiment analysis and trends for your restaurant reviews.
+                Start with "Last 7 days" for recent insights.
+              </p>
             </div>
           )}
         </div>
