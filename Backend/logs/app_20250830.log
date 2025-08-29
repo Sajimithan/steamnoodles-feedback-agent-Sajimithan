@@ -8,3 +8,6 @@
 2025-08-30 02:15:36,280 - steamnoodles_api - INFO - log_api_call:62 - API Success - /respond_review
 2025-08-30 02:16:04,717 - steamnoodles_api - INFO - respond_review:138 - Received review response request - Rating: 5
 2025-08-30 02:16:05,119 - steamnoodles_api - INFO - log_api_call:62 - API Success - /respond_review
+2025-08-30 02:24:24,952 - steamnoodles_api - INFO - startup_event:112 - Starting SteamNoodles Feedback Agent API
+2025-08-30 02:24:24,953 - steamnoodles_api - INFO - startup_event:113 - Processed data path: data/processed_reviews.csv
+2025-08-30 02:24:24,953 - steamnoodles_api - INFO - startup_event:114 - Raw data path: data/raw_reviews.csv

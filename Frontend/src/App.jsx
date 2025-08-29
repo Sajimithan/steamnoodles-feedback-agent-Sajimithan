@@ -12,11 +12,11 @@ function Navigation() {
   const location = useLocation();
   
   const navItems = [
-    { path: '/', label: 'Home', icon: '🏠' },
-    { path: '/real-time', label: 'Live Kitchen', icon: '�‍🍳', badge: 'LIVE' },
-    { path: '/respond-review', label: 'Guest Response', icon: '💬' },
-    { path: '/sentiment-visualization', label: 'Guest Insights', icon: '�' },
-    { path: '/sample-reviews', label: 'Reviews', icon: '⭐' }
+    { path: '/', label: 'Home', icon: '' },
+    { path: '/real-time', label: 'Live Kitchen', icon: '', badge: 'LIVE' },
+    { path: '/respond-review', label: 'Guest Response', icon: '' },
+    { path: '/sentiment-visualization', label: 'Guest Insights', icon: '' },
+    { path: '/sample-reviews', label: 'Reviews', icon: '' }
   ];
 
   return (
@@ -92,7 +92,7 @@ function App() {
               fontWeight: '600',
               margin: 0
             }}>
-              &copy; 2025 SteamNoodles Guest Insights • Crafted with 🍜 for Beyond Flavours
+              &copy; 2025 SteamNoodles Guest Insights • Crafted for Beyond Flavours
             </p>
           </div>
         </footer>
