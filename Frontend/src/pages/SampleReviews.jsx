@@ -56,10 +56,10 @@ const SampleReviews = () => {
 
   const getSentimentIcon = (sentiment) => {
     switch (sentiment) {
-      case 'positive': return '😊';
-      case 'negative': return '😞';
-      case 'neutral': return '😐';
-      default: return '📝';
+      case 'positive': return '';
+      case 'negative': return '';
+      case 'neutral': return '';
+      default: return '';
     }
   };
 
@@ -114,7 +114,7 @@ const SampleReviews = () => {
     <div className="page-container">
       <div className="card">
         <div className="card-header">
-          <h1 className="card-title">📚 Sample Reviews</h1>
+          <h1 className="card-title">Sample Reviews</h1>
           <p className="card-subtitle">
             Browse and explore sample customer reviews with sentiment analysis.
           </p>
@@ -156,7 +156,7 @@ const SampleReviews = () => {
           }}>
             {/* Search Input */}
             <div className="form-group">
-              <label className="form-label">🔍 Search Reviews</label>
+              <label className="form-label">Search Reviews</label>
               <input
                 type="text"
                 className="form-input"
@@ -168,16 +168,16 @@ const SampleReviews = () => {
 
             {/* Sentiment Filter */}
             <div className="form-group">
-              <label className="form-label">🎭 Filter by Sentiment</label>
+              <label className="form-label">Filter by Sentiment</label>
               <select
                 className="form-input"
                 value={selectedSentiment}
                 onChange={(e) => setSelectedSentiment(e.target.value)}
               >
                 <option value="all">All Sentiments</option>
-                <option value="positive">😊 Positive</option>
-                <option value="neutral">😐 Neutral</option>
-                <option value="negative">😞 Negative</option>
+                <option value="positive">Positive</option>
+                <option value="neutral">Neutral</option>
+                <option value="negative">Negative</option>
               </select>
             </div>
           </div>
@@ -191,7 +191,7 @@ const SampleReviews = () => {
             marginBottom: '1.5rem'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ fontSize: '1.25rem' }}>📊</span>
+              <span style={{ fontSize: '1.25rem' }}></span>
               <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>
                 Showing {filteredReviews.length} of {reviews.length} reviews
               </span>
@@ -277,7 +277,7 @@ const SampleReviews = () => {
                         padding: '0 0.5rem',
                         fontSize: '1.5rem'
                       }}>
-                        💬
+                        
                       </div>
                       <p style={{
                         fontSize: '0.95rem',
@@ -300,7 +300,7 @@ const SampleReviews = () => {
                         alignItems: 'center',
                         gap: '0.5rem'
                       }}>
-                        <span>📅</span>
+                        <span></span>
                         <span>{new Date(review.date).toLocaleDateString()}</span>
                       </div>
                     )}
@@ -314,7 +314,7 @@ const SampleReviews = () => {
               padding: '3rem',
               color: 'var(--text-secondary)'
             }}>
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔍</div>
+              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}></div>
               <h3 style={{ marginBottom: '0.5rem', color: 'var(--text-primary)' }}>
                 No Reviews Found
               </h3>

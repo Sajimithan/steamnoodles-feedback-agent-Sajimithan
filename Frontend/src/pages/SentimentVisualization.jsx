@@ -65,7 +65,7 @@ const SentimentVisualization = () => {
     <div className="page-container">
       <div className="card">
         <div className="card-header">
-          <h1 className="card-title">📊 Sentiment Analytics</h1>
+          <h1 className="card-title">Sentiment Analytics</h1>
           <p className="card-subtitle">
             Analyze sentiment trends and patterns in customer reviews over time.
           </p>
@@ -142,7 +142,7 @@ const SentimentVisualization = () => {
                 </>
               ) : (
                 <>
-                  📈 Generate Visualization
+                  Generate Visualization
                 </>
               )}
             </button>
@@ -272,7 +272,7 @@ const SentimentVisualization = () => {
                       marginBottom: '1rem',
                       color: 'var(--text-primary)'
                     }}>
-                      📋 Key Insights
+                      Key Insights
                     </h3>
                     <div style={{
                       display: 'grid',
