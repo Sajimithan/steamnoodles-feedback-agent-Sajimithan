@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   const features = [
     {
-      title: 'Live Kitchen Insights',
-      description: 'Monitor guest feedback in real-time as it comes in. Watch sentiment updates, notifications, and guest satisfaction metrics live.',
+      title: 'Kitchen Pulse Monitor',
+      description: 'Keep your finger on the pulse of guest satisfaction as it happens. See what people are saying about your dishes in real-time, just like having ears in every dining room.',
       icon: 'icon-live',
       image: '/live-monitoring.jpg',
       link: '/real-time',
@@ -13,24 +13,24 @@ const Home = () => {
       badge: 'LIVE'
     },
     {
-      title: 'Guest Response Helper',
-      description: 'Craft thoughtful, personalized responses to guest reviews that reflect your restaurant\'s warm hospitality and care.',
+      title: 'Thoughtful Response Craft',
+      description: 'Because every guest deserves a personal touch. Help craft responses that sound like they come from your heart, not a template - the way great hospitality should be.',
       icon: 'icon-chat',
       image: '/ai-response.jpg',
       link: '/respond-review',
       color: 'var(--gradient-warm)'
     },
     {
-      title: 'Guest Sentiment Insights',
-      description: 'Understand how your guests really feel about their dining experience through detailed sentiment analysis and trends.',
+      title: 'Guest Story Analytics',
+      description: 'Every review tells a story about your restaurant. Understand the emotions behind the words and discover what truly makes your guests smile (or frown).',
       icon: 'icon-chart',
       image: '/sentiment-analysis.jpg',
       link: '/sentiment-visualization',
       color: 'var(--gradient-fresh)'
     },
     {
-      title: 'Guest Reviews Collection',
-      description: 'Browse through guest reviews and feedback to understand what makes your restaurant special to your customers.',
+      title: 'Memory Lane Reviews',
+      description: 'Take a stroll through what guests have shared about their experiences. Sometimes the best insights come from simply listening to their stories.',
       icon: 'icon-star',
       image: '/customer-reviews.jpg',
       link: '/sample-reviews',
@@ -39,9 +39,9 @@ const Home = () => {
   ];
 
   const stats = [
-    { label: 'Guest Reviews Analyzed', value: '19,898+', icon: 'icon-star' },
-    { label: 'Thoughtful Responses', value: '15,000+', icon: 'icon-chat' },
-    { label: 'Guest Satisfaction', value: '98%', icon: 'icon-positive' },
+    { label: 'Stories Shared', value: '19,898+', icon: 'icon-star' },
+    { label: 'Hearts Touched', value: '15,000+', icon: 'icon-chat' },
+    { label: 'Smiles Created', value: '98%', icon: 'icon-positive' },
     { label: 'Response Time', value: '< 2s', icon: 'icon-live' }
   ];
 
@@ -75,10 +75,21 @@ const Home = () => {
           justifyContent: 'center',
           gap: '1rem',
           textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
-          filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))'
+          filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))',
+          fontFamily: 'Georgia, serif',
+          fontStyle: 'italic'
         }}>
           <span className="icon icon-steam" style={{ fontSize: '3rem', color: 'white' }}></span>
-          SteamNoodles Guest Insights
+          SteamNoodles
+          <span className="handwritten-accent" style={{ 
+            color: '#fef3c7', 
+            fontSize: '2rem',
+            fontFamily: 'Brush Script MT, cursive',
+            transform: 'rotate(-3deg)',
+            marginLeft: '10px'
+          }}>
+            Guest Insights
+          </span>
         </h1>
         <p style={{
           fontSize: '1.25rem',
@@ -86,10 +97,14 @@ const Home = () => {
           maxWidth: '600px',
           margin: '0 auto 2rem',
           lineHeight: '1.7',
-          textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
+          textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+          fontFamily: 'Georgia, serif'
         }}>
-          Transform your restaurant's guest feedback management with thoughtful response generation 
-          and detailed sentiment insights that help you serve better.
+          "Where every review tells a story, and every story makes us better."
+          <br />
+          <span style={{ fontSize: '1rem', fontStyle: 'italic', opacity: 0.9 }}>
+            - Transform guest feedback into culinary excellence with heartfelt insights
+          </span>
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link to="/respond-review" className="btn btn-primary" style={{ 
@@ -97,30 +112,33 @@ const Home = () => {
             padding: '1rem 2rem',
             display: 'flex',
             alignItems: 'center',
-            gap: '0.5rem'
+            gap: '0.5rem',
+            fontFamily: 'Georgia, serif'
           }}>
             <span className="icon icon-chat"></span>
-            Get Started
+            Let's Start Cooking
           </Link>
           <Link to="/sentiment-visualization" className="btn btn-secondary" style={{ 
             fontSize: '1.1rem', 
             padding: '1rem 2rem',
             display: 'flex',
             alignItems: 'center',
-            gap: '0.5rem'
+            gap: '0.5rem',
+            fontFamily: 'Georgia, serif'
           }}>
             <span className="icon icon-chart"></span>
-            View Insights
+            Story Insights
           </Link>
           <Link to="/real-time" className="btn btn-success" style={{ 
             fontSize: '1.1rem', 
             padding: '1rem 2rem',
             display: 'flex',
             alignItems: 'center',
-            gap: '0.5rem'
+            gap: '0.5rem',
+            fontFamily: 'Georgia, serif'
           }}>
             <span className="icon icon-live"></span>
-            Live Kitchen
+            Kitchen Live
           </Link>
         </div>
         
@@ -171,20 +189,35 @@ const Home = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '1rem'
+          gap: '1rem',
+          fontFamily: 'Georgia, serif',
+          position: 'relative'
         }}>
           <img src="/noodle-bowl.jpg" alt="" style={{
-            width: '50px',
-            height: '50px',
+            width: '45px',
+            height: '45px',
             borderRadius: '50%',
-            objectFit: 'cover'
+            objectFit: 'cover',
+            transform: 'rotate(-5deg)',
+            border: '3px solid #d97706'
           }} />
-          What Makes Us Special
+          <span>What Makes Our Kitchen</span>
+          <span className="handwritten-accent" style={{
+            color: '#d97706',
+            fontSize: '2.2rem',
+            fontFamily: 'Brush Script MT, cursive',
+            transform: 'rotate(-2deg)',
+            margin: '0 5px'
+          }}>
+            Special
+          </span>
           <img src="/noodle-bowl.jpg" alt="" style={{
-            width: '50px',
-            height: '50px',
+            width: '45px',
+            height: '45px',
             borderRadius: '50%',
-            objectFit: 'cover'
+            objectFit: 'cover',
+            transform: 'rotate(7deg)',
+            border: '3px solid #d97706'
           }} />
         </h2>
         <p style={{
@@ -193,9 +226,20 @@ const Home = () => {
           color: 'var(--text-secondary)',
           marginBottom: '3rem',
           maxWidth: '600px',
-          margin: '0 auto 3rem'
+          margin: '0 auto 3rem',
+          fontFamily: 'Georgia, serif',
+          fontStyle: 'italic',
+          lineHeight: '1.6'
         }}>
-          Just like our carefully crafted dishes, every feature is designed with attention to detail and care for your restaurant's success.
+          "Just like our carefully crafted dishes, every feature is made with love and attention to help your restaurant family grow."
+          <br />
+          <span style={{ 
+            fontSize: '0.9rem', 
+            opacity: 0.8,
+            fontStyle: 'normal'
+          }}>
+            - From our kitchen to yours ❤️
+          </span>
         </p>
         <div style={{
           display: 'grid',
@@ -303,35 +347,63 @@ const Home = () => {
       <div className="card" style={{
         background: 'var(--gradient-warm)',
         color: 'white',
-        textAlign: 'center'
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
         <div className="card-content">
           <h2 style={{
             fontSize: '2.25rem',
             fontWeight: '700',
             marginBottom: '1rem',
-            color: 'white'
+            fontFamily: 'Georgia, serif'
           }}>
-            Ready to Transform Your Guest Experience?
+            Ready to Transform Your Restaurant's Story?
           </h2>
           <p style={{
-            fontSize: '1.1rem',
+            fontSize: '1.125rem',
             marginBottom: '2rem',
-            opacity: 0.9,
-            maxWidth: '500px',
-            margin: '0 auto 2rem'
+            opacity: 0.95,
+            fontFamily: 'Georgia, serif',
+            fontStyle: 'italic'
           }}>
-            Join thousands of restaurants already using SteamNoodles to create meaningful connections with their guests.
+            "Every great restaurant has great stories. Let's make sure yours are heard."
           </p>
-          <Link to="/respond-review" className="btn btn-secondary" style={{
-            background: 'white',
-            color: 'var(--primary-color)',
-            fontWeight: '700',
-            fontSize: '1.1rem',
-            padding: '1rem 2rem'
+          
+          {/* Handwritten-style note */}
+          <div style={{
+            position: 'absolute',
+            top: '20px',
+            right: '20px',
+            background: 'rgba(255, 255, 255, 0.9)',
+            color: '#d97706',
+            padding: '10px 15px',
+            borderRadius: '8px',
+            transform: 'rotate(3deg)',
+            fontSize: '0.9rem',
+            fontFamily: 'Brush Script MT, cursive',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
           }}>
-            Start Your Journey
-          </Link>
+            Made with ❤️<br />in our kitchen
+          </div>
+          
+          <div style={{
+            display: 'flex',
+            gap: '1rem',
+            justifyContent: 'center',
+            flexWrap: 'wrap'
+          }}>
+            <Link to="/respond-review" className="btn" style={{
+              background: 'rgba(255, 255, 255, 0.2)',
+              border: '2px solid white',
+              color: 'white',
+              fontSize: '1.1rem',
+              padding: '1rem 2rem',
+              fontFamily: 'Georgia, serif'
+            }}>
+              Start Your Journey
+            </Link>
+          </div>
         </div>
       </div>
     </div>
