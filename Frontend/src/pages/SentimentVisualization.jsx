@@ -63,9 +63,47 @@ const SentimentVisualization = () => {
 
   return (
     <div className="page-container">
+      {/* Header Image Section */}
+      <div style={{
+        height: '150px',
+        backgroundImage: 'url(/sentiment-analysis.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        borderRadius: '2rem',
+        marginBottom: '2rem',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.8) 0%, rgba(16, 185, 129, 0.7) 100%)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '2rem'
+        }}>
+          <h1 style={{
+            color: 'white',
+            fontSize: '2.2rem',
+            fontWeight: '700',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem'
+          }}>
+            <span className="icon icon-chart"></span>
+            Sentiment Analytics Dashboard
+          </h1>
+        </div>
+      </div>
+      
       <div className="card">
         <div className="card-header">
-          <h1 className="card-title">📊 Sentiment Analytics</h1>
+          <h1 className="card-title">
+            <span className="icon icon-chart"></span>
+            Sentiment Analytics
+          </h1>
           <p className="card-subtitle">
             Analyze sentiment trends and patterns in customer reviews over time.
           </p>
@@ -142,7 +180,7 @@ const SentimentVisualization = () => {
                 </>
               ) : (
                 <>
-                  📈 Generate Visualization
+                  Generate Visualization
                 </>
               )}
             </button>
@@ -272,7 +310,7 @@ const SentimentVisualization = () => {
                       marginBottom: '1rem',
                       color: 'var(--text-primary)'
                     }}>
-                      📋 Key Insights
+                      Key Insights
                     </h3>
                     <div style={{
                       display: 'grid',

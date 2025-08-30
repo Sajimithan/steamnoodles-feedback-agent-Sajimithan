@@ -56,10 +56,10 @@ const SampleReviews = () => {
 
   const getSentimentIcon = (sentiment) => {
     switch (sentiment) {
-      case 'positive': return '😊';
-      case 'negative': return '😞';
-      case 'neutral': return '😐';
-      default: return '📝';
+      case 'positive': return '';
+      case 'negative': return '';
+      case 'neutral': return '';
+      default: return '';
     }
   };
 
@@ -112,9 +112,47 @@ const SampleReviews = () => {
 
   return (
     <div className="page-container">
+      {/* Header Image Section */}
+      <div style={{
+        height: '150px',
+        backgroundImage: 'url(/customer-reviews.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        borderRadius: '2rem',
+        marginBottom: '2rem',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.8) 0%, rgba(217, 119, 6, 0.7) 100%)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '2rem'
+        }}>
+          <h1 style={{
+            color: 'white',
+            fontSize: '2.2rem',
+            fontWeight: '700',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem'
+          }}>
+            <span className="icon icon-star"></span>
+            Guest Reviews Collection
+          </h1>
+        </div>
+      </div>
+      
       <div className="card">
         <div className="card-header">
-          <h1 className="card-title">📚 Sample Reviews</h1>
+          <h1 className="card-title">
+            <span className="icon icon-star"></span>
+            Sample Reviews
+          </h1>
           <p className="card-subtitle">
             Browse and explore sample customer reviews with sentiment analysis.
           </p>
@@ -156,7 +194,10 @@ const SampleReviews = () => {
           }}>
             {/* Search Input */}
             <div className="form-group">
-              <label className="form-label">🔍 Search Reviews</label>
+              <label className="form-label">
+                <span className="icon icon-search"></span>
+                Search Reviews
+              </label>
               <input
                 type="text"
                 className="form-input"
@@ -168,16 +209,19 @@ const SampleReviews = () => {
 
             {/* Sentiment Filter */}
             <div className="form-group">
-              <label className="form-label">🎭 Filter by Sentiment</label>
+              <label className="form-label">
+                <span className="icon icon-filter"></span>
+                Filter by Sentiment
+              </label>
               <select
                 className="form-input"
                 value={selectedSentiment}
                 onChange={(e) => setSelectedSentiment(e.target.value)}
               >
                 <option value="all">All Sentiments</option>
-                <option value="positive">😊 Positive</option>
-                <option value="neutral">😐 Neutral</option>
-                <option value="negative">😞 Negative</option>
+                <option value="positive">Positive</option>
+                <option value="neutral">Neutral</option>
+                <option value="negative">Negative</option>
               </select>
             </div>
           </div>
@@ -191,7 +235,7 @@ const SampleReviews = () => {
             marginBottom: '1.5rem'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ fontSize: '1.25rem' }}>📊</span>
+              <span style={{ fontSize: '1.25rem' }}></span>
               <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>
                 Showing {filteredReviews.length} of {reviews.length} reviews
               </span>
@@ -277,7 +321,7 @@ const SampleReviews = () => {
                         padding: '0 0.5rem',
                         fontSize: '1.5rem'
                       }}>
-                        💬
+                        
                       </div>
                       <p style={{
                         fontSize: '0.95rem',
@@ -300,7 +344,7 @@ const SampleReviews = () => {
                         alignItems: 'center',
                         gap: '0.5rem'
                       }}>
-                        <span>📅</span>
+                        <span></span>
                         <span>{new Date(review.date).toLocaleDateString()}</span>
                       </div>
                     )}
@@ -314,7 +358,7 @@ const SampleReviews = () => {
               padding: '3rem',
               color: 'var(--text-secondary)'
             }}>
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔍</div>
+              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}></div>
               <h3 style={{ marginBottom: '0.5rem', color: 'var(--text-primary)' }}>
                 No Reviews Found
               </h3>

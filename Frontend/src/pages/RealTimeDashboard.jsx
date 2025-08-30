@@ -151,28 +151,66 @@ const RealTimeDashboard = () => {
 
   const getSentimentIcon = (sentiment) => {
     switch (sentiment) {
-      case 'positive': return '😊';
-      case 'negative': return '😞';
-      case 'neutral': return '😐';
-      default: return '📝';
+      case 'positive': return '';
+      case 'negative': return '';
+      case 'neutral': return '';
+      default: return '';
     }
   };
 
   const getNotificationIcon = (type) => {
     switch (type) {
-      case 'urgent': return '🚨';
-      case 'info': return 'ℹ️';
-      case 'success': return '✅';
-      case 'warning': return '⚠️';
-      default: return '🔔';
+      case 'urgent': return '';
+      case 'info': return '';
+      case 'success': return '';
+      case 'warning': return '';
+      default: return '';
     }
   };
 
   return (
     <div className="page-container">
+      {/* Hero Image Section */}
+      <div style={{
+        height: '200px',
+        backgroundImage: 'url(/kitchen-live.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        borderRadius: '2rem',
+        marginBottom: '2rem',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(135deg, rgba(217, 119, 6, 0.8) 0%, rgba(220, 38, 38, 0.6) 100%)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '2rem'
+        }}>
+          <h1 style={{
+            color: 'white',
+            fontSize: '2.5rem',
+            fontWeight: '800',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem'
+          }}>
+            <span className="icon icon-live"></span>
+            Live Kitchen Dashboard
+          </h1>
+        </div>
+      </div>
+      
       <div className="card">
         <div className="card-header">
-          <h1 className="card-title">📊 Real-Time Dashboard</h1>
+          <h1 className="card-title">
+            <span className="icon icon-live"></span>
+            Real-Time Dashboard
+          </h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <div style={{
               display: 'flex',
@@ -214,19 +252,19 @@ const RealTimeDashboard = () => {
               <div className="stat-value" style={{ color: '#10b981' }}>
                 {sentimentData.positive?.toFixed(1)}%
               </div>
-              <div className="stat-label">😊 Positive</div>
+              <div className="stat-label">Positive</div>
             </div>
             <div className="stat-card">
               <div className="stat-value" style={{ color: '#3b82f6' }}>
                 {sentimentData.neutral?.toFixed(1)}%
               </div>
-              <div className="stat-label">😐 Neutral</div>
+              <div className="stat-label">Neutral</div>
             </div>
             <div className="stat-card">
               <div className="stat-value" style={{ color: '#ef4444' }}>
                 {sentimentData.negative?.toFixed(1)}%
               </div>
-              <div className="stat-label">😞 Negative</div>
+              <div className="stat-label">Negative</div>
             </div>
           </div>
 
@@ -247,7 +285,7 @@ const RealTimeDashboard = () => {
                   {/* Positive Bar */}
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                      <span style={{ fontSize: '0.875rem', fontWeight: '600' }}>😊 Positive</span>
+                      <span style={{ fontSize: '0.875rem', fontWeight: '600' }}>Positive</span>
                       <span style={{ fontSize: '0.875rem', color: '#10b981' }}>{sentimentData.positive?.toFixed(1)}%</span>
                     </div>
                     <div style={{
@@ -269,7 +307,7 @@ const RealTimeDashboard = () => {
                   {/* Neutral Bar */}
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                      <span style={{ fontSize: '0.875rem', fontWeight: '600' }}>😐 Neutral</span>
+                      <span style={{ fontSize: '0.875rem', fontWeight: '600' }}>Neutral</span>
                       <span style={{ fontSize: '0.875rem', color: '#3b82f6' }}>{sentimentData.neutral?.toFixed(1)}%</span>
                     </div>
                     <div style={{
@@ -291,7 +329,7 @@ const RealTimeDashboard = () => {
                   {/* Negative Bar */}
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                      <span style={{ fontSize: '0.875rem', fontWeight: '600' }}>😞 Negative</span>
+                      <span style={{ fontSize: '0.875rem', fontWeight: '600' }}>Negative</span>
                       <span style={{ fontSize: '0.875rem', color: '#ef4444' }}>{sentimentData.negative?.toFixed(1)}%</span>
                     </div>
                     <div style={{
@@ -381,7 +419,7 @@ const RealTimeDashboard = () => {
                       color: 'var(--text-secondary)'
                     }}>
                       <div style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📈</div>
+                        <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}></div>
                         <p>Waiting for data...</p>
                       </div>
                     </div>
@@ -401,7 +439,7 @@ const RealTimeDashboard = () => {
             <div className="card">
               <div className="card-content">
                 <h3 style={{ marginBottom: '1rem', color: 'var(--text-primary)' }}>
-                  🔴 Live Reviews Feed
+                  Live Reviews Feed
                 </h3>
                 <div style={{ maxHeight: '400px', overflowY: 'auto' }}>
                   {recentReviews.length > 0 ? (
@@ -458,7 +496,7 @@ const RealTimeDashboard = () => {
                       padding: '2rem',
                       color: 'var(--text-secondary)'
                     }}>
-                      <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>⏱️</div>
+                      <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}></div>
                       <p>Waiting for live reviews...</p>
                       <div style={{
                         marginTop: '1rem',
@@ -468,7 +506,7 @@ const RealTimeDashboard = () => {
                         border: '1px solid rgba(59, 130, 246, 0.1)'
                       }}>
                         <p style={{ fontSize: '0.875rem', margin: 0 }}>
-                          💡 Try submitting a review in the "AI Response" section to see real-time updates here!
+                          Try submitting a review in the "AI Response" section to see real-time updates here!
                         </p>
                       </div>
                     </div>
@@ -481,7 +519,7 @@ const RealTimeDashboard = () => {
             <div className="card">
               <div className="card-content">
                 <h3 style={{ marginBottom: '1rem', color: 'var(--text-primary)' }}>
-                  🔔 Live Notifications
+                  Live Notifications
                 </h3>
                 <div style={{ maxHeight: '400px', overflowY: 'auto' }}>
                   {notifications.length > 0 ? (
@@ -538,7 +576,7 @@ const RealTimeDashboard = () => {
                       padding: '2rem',
                       color: 'var(--text-secondary)'
                     }}>
-                      <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🔕</div>
+                      <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}></div>
                       <p>No notifications yet</p>
                       <div style={{
                         marginTop: '1rem',
@@ -548,7 +586,7 @@ const RealTimeDashboard = () => {
                         border: '1px solid rgba(59, 130, 246, 0.1)'
                       }}>
                         <p style={{ fontSize: '0.875rem', margin: 0 }}>
-                          🔔 Notifications will appear here when important events occur
+                          Notifications will appear here when important events occur
                         </p>
                       </div>
                     </div>
@@ -562,7 +600,7 @@ const RealTimeDashboard = () => {
           <div className="card" style={{ marginTop: '1.5rem' }}>
             <div className="card-content">
               <h3 style={{ marginBottom: '1rem', color: 'var(--text-primary)' }}>
-                🧪 Test Real-Time Features
+                Test Real-Time Features
               </h3>
               <div style={{
                 padding: '1rem',

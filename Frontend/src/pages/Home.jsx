@@ -4,81 +4,142 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   const features = [
     {
-      title: '🔴 Real-Time Dashboard',
-      description: 'Monitor live sentiment updates, notifications, and analytics in real-time with WebSocket connectivity.',
-      icon: '📡',
+      title: 'Live Kitchen Insights',
+      description: 'Monitor guest feedback in real-time as it comes in. Watch sentiment updates, notifications, and guest satisfaction metrics live.',
+      icon: 'icon-live',
+      image: '/live-monitoring.jpg',
       link: '/real-time',
-      color: 'var(--gradient-danger)',
-      badge: 'NEW'
+      color: 'var(--gradient-golden)',
+      badge: 'LIVE'
     },
     {
-      title: 'AI-Powered Responses',
-      description: 'Generate professional, context-aware responses to customer reviews using advanced AI technology.',
-      icon: '🤖',
+      title: 'Guest Response Helper',
+      description: 'Craft thoughtful, personalized responses to guest reviews that reflect your restaurant\'s warm hospitality and care.',
+      icon: 'icon-chat',
+      image: '/ai-response.jpg',
       link: '/respond-review',
-      color: 'var(--gradient-primary)'
+      color: 'var(--gradient-warm)'
     },
     {
-      title: 'Sentiment Analytics',
-      description: 'Visualize sentiment trends over time with interactive charts and comprehensive analytics.',
-      icon: '📊',
+      title: 'Guest Sentiment Insights',
+      description: 'Understand how your guests really feel about their dining experience through detailed sentiment analysis and trends.',
+      icon: 'icon-chart',
+      image: '/sentiment-analysis.jpg',
       link: '/sentiment-visualization',
-      color: 'var(--gradient-success)'
+      color: 'var(--gradient-fresh)'
     },
     {
-      title: 'Review Samples',
-      description: 'Browse through sample reviews with sentiment analysis and rating insights.',
-      icon: '⭐',
+      title: 'Guest Reviews Collection',
+      description: 'Browse through guest reviews and feedback to understand what makes your restaurant special to your customers.',
+      icon: 'icon-star',
+      image: '/customer-reviews.jpg',
       link: '/sample-reviews',
-      color: 'var(--gradient-secondary)'
+      color: 'var(--gradient-spicy)'
     }
   ];
 
   const stats = [
-    { label: 'Reviews Processed', value: '19,898+', icon: '📝' },
-    { label: 'AI Responses Generated', value: '15,000+', icon: '💬' },
-    { label: 'Customer Satisfaction', value: '98%', icon: '😊' },
-    { label: 'Average Response Time', value: '< 2s', icon: '⚡' }
+    { label: 'Guest Reviews Analyzed', value: '19,898+', icon: 'icon-star' },
+    { label: 'Thoughtful Responses', value: '15,000+', icon: 'icon-chat' },
+    { label: 'Guest Satisfaction', value: '98%', icon: 'icon-positive' },
+    { label: 'Response Time', value: '< 2s', icon: 'icon-live' }
   ];
 
   return (
     <div className="container">
       {/* Hero Section */}
-      <div className="hero-section" style={{
+      <div className="hero-section hero-pattern" style={{
         textAlign: 'center',
         padding: '4rem 0',
-        background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)',
+        background: `
+          linear-gradient(135deg, rgba(217, 119, 6, 0.85) 0%, rgba(220, 38, 38, 0.75) 100%),
+          url('/restaurant-hero.jpg')
+        `,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
         borderRadius: '2rem',
-        marginBottom: '4rem'
+        marginBottom: '4rem',
+        position: 'relative',
+        overflow: 'hidden',
+        color: 'white'
       }}>
         <h1 style={{
           fontSize: '3.5rem',
           fontWeight: '800',
-          background: 'var(--gradient-primary)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
-          marginBottom: '1.5rem'
+          color: 'white',
+          marginBottom: '1.5rem',
+          letterSpacing: '-0.02em',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '1rem',
+          textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+          filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))'
         }}>
-          SteamNoodles AI Agent
+          <span className="icon icon-steam" style={{ fontSize: '3rem', color: 'white' }}></span>
+          SteamNoodles Guest Insights
         </h1>
         <p style={{
           fontSize: '1.25rem',
-          color: 'var(--text-secondary)',
+          color: 'rgba(255, 255, 255, 0.95)',
           maxWidth: '600px',
           margin: '0 auto 2rem',
-          lineHeight: '1.7'
+          lineHeight: '1.7',
+          textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
         }}>
-          Transform your restaurant's customer feedback management with AI-powered response generation 
-          and advanced sentiment analysis.
+          Transform your restaurant's guest feedback management with thoughtful response generation 
+          and detailed sentiment insights that help you serve better.
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link to="/respond-review" className="btn btn-primary" style={{ fontSize: '1.1rem', padding: '1rem 2rem' }}>
-            🚀 Get Started
+          <Link to="/respond-review" className="btn btn-primary" style={{ 
+            fontSize: '1.1rem', 
+            padding: '1rem 2rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            <span className="icon icon-chat"></span>
+            Get Started
           </Link>
-          <Link to="/sentiment-visualization" className="btn btn-secondary" style={{ fontSize: '1.1rem', padding: '1rem 2rem' }}>
-            📊 View Analytics
+          <Link to="/sentiment-visualization" className="btn btn-secondary" style={{ 
+            fontSize: '1.1rem', 
+            padding: '1rem 2rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            <span className="icon icon-chart"></span>
+            View Insights
           </Link>
+          <Link to="/real-time" className="btn btn-success" style={{ 
+            fontSize: '1.1rem', 
+            padding: '1rem 2rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            <span className="icon icon-live"></span>
+            Live Kitchen
+          </Link>
+        </div>
+        
+        {/* Decorative elements */}
+        <div className="decorative-chopsticks">
+          <img src="/chopsticks-icon.svg" alt="" style={{ 
+            width: '60px', 
+            height: '60px', 
+            opacity: 0.15,
+            filter: 'brightness(0) invert(1)'
+          }} />
+        </div>
+        <div className="decorative-steam">
+          <img src="/steam-icon.svg" alt="" style={{ 
+            width: '40px', 
+            height: '40px', 
+            opacity: 0.15,
+            filter: 'brightness(0) invert(1)'
+          }} />
         </div>
       </div>
 
@@ -86,7 +147,9 @@ const Home = () => {
       <div className="stats-grid">
         {stats.map((stat, index) => (
           <div key={index} className="stat-card slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-            <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{stat.icon}</div>
+            <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>
+              <span className={`icon ${stat.icon}`} style={{ fontSize: '2rem' }}></span>
+            </div>
             <div className="stat-value">{stat.value}</div>
             <div className="stat-label">{stat.label}</div>
           </div>
@@ -96,14 +159,44 @@ const Home = () => {
       {/* Features Section */}
       <div style={{ marginBottom: '4rem' }}>
         <h2 style={{
-          fontSize: '2.5rem',
+          fontSize: '2.75rem',
           fontWeight: '700',
           textAlign: 'center',
-          marginBottom: '3rem',
-          color: 'var(--text-primary)'
+          marginBottom: '1rem',
+          background: 'var(--gradient-golden)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+          letterSpacing: '-0.02em',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '1rem'
         }}>
-          Powerful Features
+          <img src="/noodle-bowl.jpg" alt="" style={{
+            width: '50px',
+            height: '50px',
+            borderRadius: '50%',
+            objectFit: 'cover'
+          }} />
+          What Makes Us Special
+          <img src="/noodle-bowl.jpg" alt="" style={{
+            width: '50px',
+            height: '50px',
+            borderRadius: '50%',
+            objectFit: 'cover'
+          }} />
         </h2>
+        <p style={{
+          textAlign: 'center',
+          fontSize: '1.2rem',
+          color: 'var(--text-secondary)',
+          marginBottom: '3rem',
+          maxWidth: '600px',
+          margin: '0 auto 3rem'
+        }}>
+          Just like our carefully crafted dishes, every feature is designed with attention to detail and care for your restaurant's success.
+        </p>
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
@@ -127,107 +220,119 @@ const Home = () => {
                   position: 'absolute',
                   top: '1rem',
                   right: '1rem',
-                  background: 'linear-gradient(135deg, #ef4444, #dc2626)',
+                  background: 'var(--accent-color)',
                   color: 'white',
                   padding: '0.25rem 0.75rem',
                   borderRadius: '1rem',
                   fontSize: '0.75rem',
                   fontWeight: '700',
                   animation: 'pulse 2s infinite',
-                  zIndex: 1
+                  zIndex: 10
                 }}>
                   {feature.badge}
                 </div>
               )}
-              <div className="card-content">
-                <div style={{
-                  fontSize: '3rem',
-                  marginBottom: '1rem',
-                  textAlign: 'center'
-                }}>
-                  {feature.icon}
-                </div>
-                <h3 style={{
-                  fontSize: '1.5rem',
-                  fontWeight: '700',
-                  marginBottom: '1rem',
-                  textAlign: 'center',
-                  color: 'var(--text-primary)'
-                }}>
-                  {feature.title}
-                </h3>
-                <p style={{
-                  color: 'var(--text-secondary)',
-                  textAlign: 'center',
-                  lineHeight: '1.6'
-                }}>
-                  {feature.description}
-                </p>
+              
+              {/* Feature Image */}
+              <div style={{
+                height: '200px',
+                backgroundImage: `url('${feature.image}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                borderRadius: '1rem 1rem 0 0',
+                position: 'relative',
+                overflow: 'hidden'
+              }}>
                 <div style={{
                   position: 'absolute',
                   bottom: 0,
                   left: 0,
                   right: 0,
-                  height: '4px',
-                  background: feature.color
+                  height: '50%',
+                  background: 'linear-gradient(transparent, rgba(0,0,0,0.3))'
                 }}></div>
+              </div>
+              
+              <div className="card-content">
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '1rem',
+                  marginBottom: '1rem'
+                }}>
+                  <div style={{
+                    fontSize: '2.5rem',
+                    width: '60px',
+                    height: '60px',
+                    borderRadius: '16px',
+                    background: feature.color,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: 'var(--shadow-warm)'
+                  }}>
+                    <span className={`icon ${feature.icon}`} style={{ 
+                      fontSize: '1.8rem', 
+                      color: 'white',
+                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
+                    }}></span>
+                  </div>
+                  <h3 style={{
+                    fontSize: '1.5rem',
+                    fontWeight: '700',
+                    color: 'var(--text-primary)',
+                    margin: 0
+                  }}>
+                    {feature.title}
+                  </h3>
+                </div>
+                <p style={{
+                  color: 'var(--text-secondary)',
+                  lineHeight: '1.6',
+                  margin: 0
+                }}>
+                  {feature.description}
+                </p>
               </div>
             </Link>
           ))}
         </div>
       </div>
 
-      {/* Technology Section */}
-      <div className="card" style={{ marginBottom: '4rem' }}>
-        <div className="card-header">
-          <h2 className="card-title">🔧 Built with Modern Technology</h2>
-          <p className="card-subtitle">Powered by cutting-edge AI and web technologies</p>
-        </div>
-        <div className="card-content">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '2rem'
-          }}>
-            <div style={{ textAlign: 'center' }}>
-              <h4 style={{ color: 'var(--primary-color)', marginBottom: '0.5rem', fontWeight: '600' }}>Frontend</h4>
-              <p style={{ color: 'var(--text-secondary)' }}>React, Vite, Chart.js</p>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <h4 style={{ color: 'var(--primary-color)', marginBottom: '0.5rem', fontWeight: '600' }}>Backend</h4>
-              <p style={{ color: 'var(--text-secondary)' }}>FastAPI, Python, SQLite</p>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <h4 style={{ color: 'var(--primary-color)', marginBottom: '0.5rem', fontWeight: '600' }}>AI Engine</h4>
-              <p style={{ color: 'var(--text-secondary)' }}>Groq, Llama3-8B, NLP</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Call to Action */}
-      <div style={{
-        textAlign: 'center',
-        padding: '3rem',
-        background: 'var(--gradient-primary)',
-        borderRadius: '2rem',
-        color: 'white'
+      <div className="card" style={{
+        background: 'var(--gradient-warm)',
+        color: 'white',
+        textAlign: 'center'
       }}>
-        <h2 style={{ fontSize: '2rem', marginBottom: '1rem', fontWeight: '700' }}>
-          Ready to Transform Your Customer Feedback?
-        </h2>
-        <p style={{ fontSize: '1.1rem', marginBottom: '2rem', opacity: 0.9 }}>
-          Start generating professional responses and analyzing sentiment trends today.
-        </p>
-        <Link to="/respond-review" className="btn" style={{
-          background: 'white',
-          color: 'var(--primary-color)',
-          fontSize: '1.1rem',
-          padding: '1rem 2rem',
-          fontWeight: '600'
-        }}>
-          Try It Now →
-        </Link>
+        <div className="card-content">
+          <h2 style={{
+            fontSize: '2.25rem',
+            fontWeight: '700',
+            marginBottom: '1rem',
+            color: 'white'
+          }}>
+            Ready to Transform Your Guest Experience?
+          </h2>
+          <p style={{
+            fontSize: '1.1rem',
+            marginBottom: '2rem',
+            opacity: 0.9,
+            maxWidth: '500px',
+            margin: '0 auto 2rem'
+          }}>
+            Join thousands of restaurants already using SteamNoodles to create meaningful connections with their guests.
+          </p>
+          <Link to="/respond-review" className="btn btn-secondary" style={{
+            background: 'white',
+            color: 'var(--primary-color)',
+            fontWeight: '700',
+            fontSize: '1.1rem',
+            padding: '1rem 2rem'
+          }}>
+            Start Your Journey
+          </Link>
+        </div>
       </div>
     </div>
   );
