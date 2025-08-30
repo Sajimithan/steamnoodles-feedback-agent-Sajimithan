@@ -53,11 +53,13 @@ const Home = () => {
         padding: '4rem 0',
         background: `
           linear-gradient(135deg, rgba(217, 119, 6, 0.85) 0%, rgba(220, 38, 38, 0.75) 100%),
+          url('/noodle-texture.jpg'),
           url('/restaurant-hero.jpg')
         `,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover, 200px 200px, cover',
+        backgroundPosition: 'center, center, center',
+        backgroundBlendMode: 'normal, multiply, normal',
+        backgroundAttachment: 'fixed, scroll, fixed',
         borderRadius: '2rem',
         marginBottom: '4rem',
         position: 'relative',
@@ -162,7 +164,12 @@ const Home = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="stats-grid">
+      <div className="stats-grid noodle-pattern" style={{
+        padding: '2rem',
+        borderRadius: '2rem',
+        background: 'rgba(255, 255, 255, 0.2)',
+        marginBottom: '3rem'
+      }}>
         {stats.map((stat, index) => (
           <div key={index} className="stat-card slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
             <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>
@@ -175,7 +182,12 @@ const Home = () => {
       </div>
 
       {/* Features Section */}
-      <div style={{ marginBottom: '4rem' }}>
+      <div className="noodle-pattern" style={{ 
+        marginBottom: '4rem',
+        padding: '2rem',
+        borderRadius: '2rem',
+        background: 'rgba(255, 255, 255, 0.3)'
+      }}>
         <h2 style={{
           fontSize: '2.75rem',
           fontWeight: '700',
