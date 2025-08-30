@@ -26,3 +26,7 @@
 2025-08-30 03:13:56,899 - steamnoodles_api - INFO - startup_event:112 - Starting SteamNoodles Feedback Agent API
 2025-08-30 03:13:56,900 - steamnoodles_api - INFO - startup_event:113 - Processed data path: data/processed_reviews.csv
 2025-08-30 03:13:56,900 - steamnoodles_api - INFO - startup_event:114 - Raw data path: data/raw_reviews.csv
+2025-08-30 10:55:50,519 - steamnoodles_api - INFO - startup_event:112 - Starting SteamNoodles Feedback Agent API
+2025-08-30 10:55:50,520 - steamnoodles_api - INFO - startup_event:113 - Processed data path: data/processed_reviews.csv
+2025-08-30 10:55:50,520 - steamnoodles_api - INFO - startup_event:114 - Raw data path: data/raw_reviews.csv
+2025-08-30 10:57:10,192 - steamnoodles_api - ERROR - websocket_sentiment_live:387 - Error in sentiment WebSocket: WebSocket is not connected. Need to call "accept" first.

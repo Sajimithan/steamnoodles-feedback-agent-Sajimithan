@@ -7,6 +7,7 @@ const Home = () => {
       title: 'Live Kitchen Insights',
       description: 'Monitor guest feedback in real-time as it comes in. Watch sentiment updates, notifications, and guest satisfaction metrics live.',
       icon: 'icon-live',
+      image: '/live-monitoring.jpg',
       link: '/real-time',
       color: 'var(--gradient-golden)',
       badge: 'LIVE'
@@ -15,6 +16,7 @@ const Home = () => {
       title: 'Guest Response Helper',
       description: 'Craft thoughtful, personalized responses to guest reviews that reflect your restaurant\'s warm hospitality and care.',
       icon: 'icon-chat',
+      image: '/ai-response.jpg',
       link: '/respond-review',
       color: 'var(--gradient-warm)'
     },
@@ -22,6 +24,7 @@ const Home = () => {
       title: 'Guest Sentiment Insights',
       description: 'Understand how your guests really feel about their dining experience through detailed sentiment analysis and trends.',
       icon: 'icon-chart',
+      image: '/sentiment-analysis.jpg',
       link: '/sentiment-visualization',
       color: 'var(--gradient-fresh)'
     },
@@ -29,6 +32,7 @@ const Home = () => {
       title: 'Guest Reviews Collection',
       description: 'Browse through guest reviews and feedback to understand what makes your restaurant special to your customers.',
       icon: 'icon-star',
+      image: '/customer-reviews.jpg',
       link: '/sample-reviews',
       color: 'var(--gradient-spicy)'
     }
@@ -47,35 +51,42 @@ const Home = () => {
       <div className="hero-section hero-pattern" style={{
         textAlign: 'center',
         padding: '4rem 0',
-        background: 'linear-gradient(135deg, rgba(217, 119, 6, 0.05) 0%, rgba(220, 38, 38, 0.03) 100%)',
+        background: `
+          linear-gradient(135deg, rgba(217, 119, 6, 0.85) 0%, rgba(220, 38, 38, 0.75) 100%),
+          url('/restaurant-hero.jpg')
+        `,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
         borderRadius: '2rem',
         marginBottom: '4rem',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        color: 'white'
       }}>
         <h1 style={{
           fontSize: '3.5rem',
           fontWeight: '800',
-          background: 'var(--gradient-golden)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
+          color: 'white',
           marginBottom: '1.5rem',
           letterSpacing: '-0.02em',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '1rem'
+          gap: '1rem',
+          textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+          filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))'
         }}>
-          <span className="icon icon-steam" style={{ fontSize: '3rem', color: '#d97706' }}></span>
+          <span className="icon icon-steam" style={{ fontSize: '3rem', color: 'white' }}></span>
           SteamNoodles Guest Insights
         </h1>
         <p style={{
           fontSize: '1.25rem',
-          color: 'var(--text-secondary)',
+          color: 'rgba(255, 255, 255, 0.95)',
           maxWidth: '600px',
           margin: '0 auto 2rem',
-          lineHeight: '1.7'
+          lineHeight: '1.7',
+          textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
         }}>
           Transform your restaurant's guest feedback management with thoughtful response generation 
           and detailed sentiment insights that help you serve better.
@@ -115,10 +126,20 @@ const Home = () => {
         
         {/* Decorative elements */}
         <div className="decorative-chopsticks">
-          <span className="icon icon-chopsticks" style={{ fontSize: '3rem', color: 'rgba(217, 119, 6, 0.1)' }}></span>
+          <img src="/chopsticks-icon.svg" alt="" style={{ 
+            width: '60px', 
+            height: '60px', 
+            opacity: 0.15,
+            filter: 'brightness(0) invert(1)'
+          }} />
         </div>
         <div className="decorative-steam">
-          <span className="icon icon-steam" style={{ fontSize: '2rem', color: 'rgba(217, 119, 6, 0.1)' }}></span>
+          <img src="/steam-icon.svg" alt="" style={{ 
+            width: '40px', 
+            height: '40px', 
+            opacity: 0.15,
+            filter: 'brightness(0) invert(1)'
+          }} />
         </div>
       </div>
 
@@ -146,9 +167,25 @@ const Home = () => {
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
-          letterSpacing: '-0.02em'
+          letterSpacing: '-0.02em',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '1rem'
         }}>
+          <img src="/noodle-bowl.jpg" alt="" style={{
+            width: '50px',
+            height: '50px',
+            borderRadius: '50%',
+            objectFit: 'cover'
+          }} />
           What Makes Us Special
+          <img src="/noodle-bowl.jpg" alt="" style={{
+            width: '50px',
+            height: '50px',
+            borderRadius: '50%',
+            objectFit: 'cover'
+          }} />
         </h2>
         <p style={{
           textAlign: 'center',
@@ -195,6 +232,27 @@ const Home = () => {
                   {feature.badge}
                 </div>
               )}
+              
+              {/* Feature Image */}
+              <div style={{
+                height: '200px',
+                backgroundImage: `url('${feature.image}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                borderRadius: '1rem 1rem 0 0',
+                position: 'relative',
+                overflow: 'hidden'
+              }}>
+                <div style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: '50%',
+                  background: 'linear-gradient(transparent, rgba(0,0,0,0.3))'
+                }}></div>
+              </div>
+              
               <div className="card-content">
                 <div style={{
                   display: 'flex',

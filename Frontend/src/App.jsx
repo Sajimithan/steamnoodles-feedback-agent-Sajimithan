@@ -56,7 +56,7 @@ function App() {
         <header className="app-header">
           <div className="header-content">
             <div className="logo-section">
-              <img src={bfLogo} className="logo" alt="Beyond Flavours logo" />
+              <img src="/steamnoodles-logo.png" className="logo" alt="SteamNoodles logo" />
               <div className="brand-text">SteamNoodles Insights</div>
             </div>
             <Navigation />

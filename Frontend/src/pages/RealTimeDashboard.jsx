@@ -170,6 +170,41 @@ const RealTimeDashboard = () => {
 
   return (
     <div className="page-container">
+      {/* Hero Image Section */}
+      <div style={{
+        height: '200px',
+        backgroundImage: 'url(/kitchen-live.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        borderRadius: '2rem',
+        marginBottom: '2rem',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(135deg, rgba(217, 119, 6, 0.8) 0%, rgba(220, 38, 38, 0.6) 100%)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '2rem'
+        }}>
+          <h1 style={{
+            color: 'white',
+            fontSize: '2.5rem',
+            fontWeight: '800',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem'
+          }}>
+            <span className="icon icon-live"></span>
+            Live Kitchen Dashboard
+          </h1>
+        </div>
+      </div>
+      
       <div className="card">
         <div className="card-header">
           <h1 className="card-title">

@@ -48,6 +48,41 @@ const RespondReview = () => {
 
   return (
     <div className="page-container">
+      {/* Header Image Section */}
+      <div style={{
+        height: '150px',
+        backgroundImage: 'url(/ai-response.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        borderRadius: '2rem',
+        marginBottom: '2rem',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.8) 0%, rgba(5, 150, 105, 0.7) 100%)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '2rem'
+        }}>
+          <h1 style={{
+            color: 'white',
+            fontSize: '2.2rem',
+            fontWeight: '700',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem'
+          }}>
+            <span className="icon icon-chat"></span>
+            AI Response Generator
+          </h1>
+        </div>
+      </div>
+      
       <div className="card">
         <div className="card-header">
           <h1 className="card-title">
