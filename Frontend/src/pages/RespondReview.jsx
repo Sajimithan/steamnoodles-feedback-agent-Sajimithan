@@ -62,7 +62,7 @@ const RespondReview = () => {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.8) 0%, rgba(5, 150, 105, 0.7) 100%)',
+          background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.6) 0%, rgba(5, 150, 105, 0.5) 100%)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
