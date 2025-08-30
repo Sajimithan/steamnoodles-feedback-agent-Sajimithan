@@ -48,9 +48,47 @@ const RespondReview = () => {
 
   return (
     <div className="page-container">
+      {/* Header Image Section */}
+      <div style={{
+        height: '150px',
+        backgroundImage: 'url(/ai-response.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        borderRadius: '2rem',
+        marginBottom: '2rem',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.8) 0%, rgba(5, 150, 105, 0.7) 100%)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '2rem'
+        }}>
+          <h1 style={{
+            color: 'white',
+            fontSize: '2.2rem',
+            fontWeight: '700',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem'
+          }}>
+            <span className="icon icon-chat"></span>
+            AI Response Generator
+          </h1>
+        </div>
+      </div>
+      
       <div className="card">
         <div className="card-header">
-          <h1 className="card-title">🤖 AI Response Generator</h1>
+          <h1 className="card-title">
+            <span className="icon icon-chat"></span>
+            AI Response Generator
+          </h1>
           <p className="card-subtitle">
             Generate professional, context-aware responses to customer reviews using advanced AI technology.
           </p>
@@ -141,7 +179,7 @@ const RespondReview = () => {
                 </>
               ) : (
                 <>
-                  🚀 Generate Professional Response
+                  Generate Professional Response
                 </>
               )}
             </button>
@@ -201,7 +239,7 @@ const RespondReview = () => {
                     color: 'var(--text-secondary)',
                     fontStyle: 'italic'
                   }}>
-                    💡 This response is professionally crafted to be polite, context-aware, and under 100 words.
+                    This response is professionally crafted to be polite, context-aware, and under 100 words.
                   </div>
                 </div>
               </div>
@@ -213,7 +251,7 @@ const RespondReview = () => {
       {/* Tips Section */}
       <div className="card" style={{ marginTop: '2rem' }}>
         <div className="card-header">
-          <h2 className="card-title">💡 Tips for Best Results</h2>
+          <h2 className="card-title">Tips for Best Results</h2>
         </div>
         <div className="card-content">
           <div style={{
@@ -222,7 +260,7 @@ const RespondReview = () => {
             gap: '1.5rem'
           }}>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📝</div>
+              <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}></div>
               <h4 style={{ marginBottom: '0.5rem', color: 'var(--primary-color)' }}>Be Specific</h4>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
                 Include specific details from the review for more contextual responses.
