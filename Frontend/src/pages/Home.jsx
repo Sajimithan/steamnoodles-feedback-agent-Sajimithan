@@ -46,7 +46,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="container">
+    <div className="page-container">
       {/* Hero Section */}
       <div className="hero-section hero-pattern" style={{
         textAlign: 'center',
@@ -265,11 +265,7 @@ const Home = () => {
             - From our kitchen to yours ❤️
           </span>
         </p>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-          gap: '2rem'
-        }}>
+        <div className="features-grid">
           {features.map((feature, index) => (
             <Link
               key={index}

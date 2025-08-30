@@ -242,6 +242,9 @@ body::before {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .page-container {
@@ -1235,6 +1238,10 @@ body::before {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
+  justify-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
 }
 
 .stat-card {
@@ -1301,6 +1308,17 @@ body::before {
   letter-spacing: 0.05em;
   font-family: 'Georgia', serif;
   font-style: italic;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Sentiment Tags */
