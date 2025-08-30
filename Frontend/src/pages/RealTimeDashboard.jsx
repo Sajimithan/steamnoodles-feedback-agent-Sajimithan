@@ -184,7 +184,7 @@ const RealTimeDashboard = () => {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(135deg, rgba(217, 119, 6, 0.8) 0%, rgba(220, 38, 38, 0.6) 100%)',
+          background: 'linear-gradient(135deg, rgba(217, 119, 6, 0.6) 0%, rgba(220, 38, 38, 0.5) 100%)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

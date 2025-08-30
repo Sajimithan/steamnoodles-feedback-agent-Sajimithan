@@ -126,7 +126,7 @@ const SampleReviews = () => {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.8) 0%, rgba(217, 119, 6, 0.7) 100%)',
+          background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.6) 0%, rgba(217, 119, 6, 0.5) 100%)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
