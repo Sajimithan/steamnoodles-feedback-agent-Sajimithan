@@ -52,20 +52,31 @@ const Home = () => {
         textAlign: 'center',
         padding: '4rem 0',
         background: `
-          linear-gradient(135deg, rgba(217, 119, 6, 0.85) 0%, rgba(220, 38, 38, 0.75) 100%),
+          linear-gradient(135deg, rgba(217, 119, 6, 0.65) 0%, rgba(220, 38, 38, 0.55) 100%),
           url('/noodle-texture.jpg'),
           url('/restaurant-hero.jpg')
         `,
         backgroundSize: 'cover, 200px 200px, cover',
         backgroundPosition: 'center, center, center',
-        backgroundBlendMode: 'normal, multiply, normal',
+        backgroundBlendMode: 'normal, soft-light, normal',
         backgroundAttachment: 'fixed, scroll, fixed',
         borderRadius: '2rem',
         marginBottom: '4rem',
         position: 'relative',
         overflow: 'hidden',
-        color: 'white'
+        color: 'white',
+        boxShadow: 'inset 0 0 100px rgba(0, 0, 0, 0.2)'
       }}>
+        
+        {/* Additional overlay for text readability */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.15) 80%)',
+          zIndex: 1
+        }}></div>
+        
+        <div style={{ position: 'relative', zIndex: 2 }}>
         <h1 style={{
           fontSize: '3.5rem',
           fontWeight: '800',
@@ -161,6 +172,7 @@ const Home = () => {
             filter: 'brightness(0) invert(1)'
           }} />
         </div>
+        </div> {/* Close the z-index: 2 div */}
       </div>
 
       {/* Stats Section */}

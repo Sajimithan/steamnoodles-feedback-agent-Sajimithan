@@ -77,7 +77,7 @@ const SentimentVisualization = () => {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.8) 0%, rgba(16, 185, 129, 0.7) 100%)',
+          background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.6) 0%, rgba(16, 185, 129, 0.5) 100%)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
