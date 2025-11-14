@@ -1,45 +1,75 @@
-/* SteamNoodles Restaurant Theme - Warm & Authentic */
+/* SteamNoodles Restaurant Theme - Modern & Elegant */
 :root {
-  /* Restaurant-Inspired Color Palette */
-  --primary-color: #d97706; /* Warm amber - like golden noodles */
-  --primary-hover: #b45309;
-  --secondary-color: #8b5a3c; /* Rich brown - like soy sauce */
-  --accent-color: #dc2626; /* Spicy red - chili accent */
-  --success-color: #059669; /* Fresh green - herbs */
-  --warning-color: #f59e0b; /* Golden yellow - turmeric */
-  --error-color: #dc2626; /* Hot red - spice level */
+  /* Modern Vibrant Color Palette */
+  --primary-color: #f59e0b; /* Bright amber */
+  --primary-hover: #d97706;
+  --primary-light: #fbbf24;
+  --secondary-color: #8b5cf6; /* Rich purple */
+  --accent-color: #ef4444; /* Vibrant red */
+  --success-color: #10b981; /* Fresh green */
+  --warning-color: #f59e0b; /* Golden */
+  --error-color: #ef4444;
+  --info-color: #3b82f6; /* Blue */
   
-  /* Backgrounds with texture inspiration */
-  --background-color: #fefcf8; /* Warm cream - like steamed rice */
-  --background-secondary: #faf8f4; /* Light cream */
+  /* Sophisticated Backgrounds */
+  --background-color: #fafaf9; /* Warm stone */
+  --background-secondary: #f5f5f4;
   --surface-color: #ffffff;
-  --surface-warm: #fffbf7; /* Slightly warm white */
+  --surface-elevated: #ffffff;
   
-  /* Text colors with warmth */
-  --text-primary: #292524; /* Dark brown - rich and readable */
-  --text-secondary: #78716c; /* Medium brown */
-  --text-light: #a8a29e; /* Light brown */
+  /* Refined Text Colors */
+  --text-primary: #1c1917; /* Rich dark */
+  --text-secondary: #78716c; /* Medium gray */
+  --text-light: #a8a29e; /* Light gray */
+  --text-on-primary: #ffffff;
   
-  /* Border colors */
-  --border-color: #f3f1ed; /* Soft cream border */
-  --border-accent: #fed7aa; /* Warm accent border */
+  /* Modern Borders */
+  --border-color: #e7e5e4; /* Subtle border */
+  --border-accent: #fbbf24;
+  --border-focus: #f59e0b;
   
-  /* Authentic shadows with warmth */
-  --shadow-warm: 0 2px 8px rgba(217, 119, 6, 0.1);
-  --shadow-soft: 0 4px 12px rgba(41, 37, 36, 0.08);
-  --shadow-medium: 0 8px 24px rgba(41, 37, 36, 0.12);
-  --shadow-strong: 0 16px 40px rgba(41, 37, 36, 0.16);
+  /* Enhanced Shadows - More Depth */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-warm: 0 4px 14px 0 rgba(245, 158, 11, 0.15);
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-strong: 0 16px 40px rgba(0, 0, 0, 0.16);
   
-  /* Restaurant-inspired gradients */
-  --gradient-golden: linear-gradient(135deg, #fbbf24 0%, #d97706 100%); /* Golden noodles */
-  --gradient-spicy: linear-gradient(135deg, #f87171 0%, #dc2626 100%); /* Chili heat */
-  --gradient-fresh: linear-gradient(135deg, #34d399 0%, #059669 100%); /* Fresh herbs */
-  --gradient-warm: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%); /* Warm broth */
+  /* Modern Gradients */
+  --gradient-golden: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+  --gradient-spicy: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+  --gradient-fresh: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+  --gradient-warm: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  --gradient-purple: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+  --gradient-blue: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  --gradient-sunset: linear-gradient(135deg, #f59e0b 0%, #ef4444 50%, #8b5cf6 100%);
   
-  /* Glass effect variables */
-  --glass-bg: rgba(255, 255, 255, 0.25);
-  --glass-border: rgba(255, 255, 255, 0.18);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  /* Glass Morphism */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  
+  /* Spacing Scale */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
 }
 
 * {
@@ -48,24 +78,38 @@
   padding: 0;
 }
 
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
 body {
-  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background: var(--background-color);
   background-image: 
-    linear-gradient(135deg, rgba(255, 251, 247, 0.75) 0%, rgba(254, 243, 199, 0.75) 100%),
-    url('/noodle-texture.jpg'),
-    radial-gradient(circle at 20% 80%, rgba(217, 119, 6, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(220, 38, 38, 0.02) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(5, 150, 105, 0.02) 0%, transparent 50%);
-  background-size: cover, 300px 300px, 100% 100%, 100% 100%, 100% 100%;
-  background-attachment: fixed, scroll, fixed, fixed, fixed;
-  background-position: center, 0 0, center, center, center;
-  background-repeat: no-repeat, repeat, no-repeat, no-repeat, no-repeat;
+    radial-gradient(circle at 20% 30%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
+  background-size: 100% 100%, 100% 100%, 100% 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.7;
   min-height: 100vh;
-  /* Subtle texture overlay */
   position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body::before {
@@ -89,27 +133,32 @@ body::before {
   position: relative;
   align-items: center;
   width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Header with restaurant warmth */
+/* Modern Header with Glass Morphism */
 .app-header {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-accent);
-  box-shadow: var(--shadow-warm);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  transition: all 0.3s ease;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border-color);
-  padding: 1rem 0;
+  box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1.25rem 0;
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.app-header:hover {
+  box-shadow: var(--shadow-md);
+  background: rgba(255, 255, 255, 0.85);
 }
 
 .header-content {
@@ -120,6 +169,8 @@ body::before {
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .logo-section {
@@ -201,9 +252,10 @@ body::before {
 
 .nav-link.active {
   background: var(--gradient-golden);
-  color: white;
-  box-shadow: var(--shadow-medium);
-  transform: translateY(-1px);
+  color: var(--text-on-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  font-weight: 700;
 }
 
 .nav-link.active::before {
@@ -213,13 +265,24 @@ body::before {
 /* Main Content with organic spacing */
 .main-content {
   flex: 1;
-  padding: 2rem 1.5rem;
+  padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.main-content > .fade-in {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 0;
 }
 
 /* Beautiful page transitions */
@@ -255,36 +318,34 @@ body::before {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  right: 0;
 }
 
-/* Glass-morphism cards with warmth */
-/* More natural, imperfect design elements */
+.page-container > * {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Modern Glass-morphism Cards */
 .card {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  box-shadow: var(--shadow-medium);
-  margin-bottom: 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  margin: 0 auto 2rem;
   overflow: hidden;
   position: relative;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Slightly imperfect rotation for organic feel */
-  transform: rotate(-0.2deg);
-}
-
-.card:nth-child(even) {
-  transform: rotate(0.3deg);
-}
-
-.card:nth-child(3n) {
-  transform: rotate(-0.1deg);
-}
-
-.card:hover {
-  transform: rotate(0deg) translateY(-5px);
-  box-shadow: 0 15px 35px rgba(217, 119, 6, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  max-width: 100%;
+  transform: translateY(0);
 }
 
 .card::before {
@@ -293,39 +354,45 @@ body::before {
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 4px;
   background: var(--gradient-golden);
+  opacity: 0;
+  transition: opacity 0.3s ease;
   z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--border-accent);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card::after {
   content: '';
   position: absolute;
-  top: 3px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    linear-gradient(45deg, rgba(217, 119, 6, 0.025) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(217, 119, 6, 0.025) 25%, transparent 25%),
-    url('/steam-pattern.png');
-  background-size: 30px 30px, 30px 30px, 150px 150px;
-  background-position: 0 0, 15px 15px, center;
-  background-repeat: repeat, repeat, repeat;
-  opacity: 0.6;
+  background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.03) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-strong);
+.card:hover::after {
+  opacity: 1;
 }
 
 .card-header {
-  padding: 2rem 2rem 1rem;
+  padding: 2.5rem 2.5rem 1.5rem;
   border-bottom: 1px solid var(--border-color);
-  background: linear-gradient(135deg, rgba(255, 251, 247, 0.8) 0%, rgba(254, 215, 170, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(254, 243, 199, 0.2) 100%);
   position: relative;
   z-index: 2;
 }
@@ -334,10 +401,11 @@ body::before {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 2rem;
-  right: 2rem;
-  height: 1px;
-  background: var(--gradient-warm);
+  left: 2.5rem;
+  right: 2.5rem;
+  height: 2px;
+  background: var(--gradient-golden);
+  border-radius: var(--radius-full);
 }
 
 .card-title {
@@ -356,7 +424,7 @@ body::before {
 }
 
 .card-content {
-  padding: 2rem;
+  padding: 2.5rem;
   position: relative;
   z-index: 2;
 }
@@ -392,15 +460,16 @@ body::before {
 .form-textarea,
 .form-select {
   width: 100%;
-  padding: 1rem 1.25rem;
+  padding: 1.125rem 1.5rem;
   border: 2px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   font-size: 1rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--glass-bg);
   backdrop-filter: blur(10px);
   color: var(--text-primary);
   font-family: inherit;
+  box-shadow: var(--shadow-sm);
 }
 
 .form-input:focus,
@@ -408,7 +477,7 @@ body::before {
 .form-select:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.1), var(--shadow-warm);
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15), var(--shadow-md);
   transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.95);
 }
@@ -425,17 +494,17 @@ body::before {
   line-height: 1.6;
 }
 
-/* Restaurant-style Buttons with authentic feel */
+/* Modern Premium Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  padding: 1rem 2rem;
+  padding: 1rem 2.25rem;
   font-weight: 600;
   font-size: 1rem;
   border: none;
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
@@ -443,7 +512,8 @@ body::before {
   overflow: hidden;
   backdrop-filter: blur(10px);
   font-family: inherit;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-md);
 }
 
 .btn::before {
@@ -473,39 +543,42 @@ body::before {
 
 .btn-primary {
   background: var(--gradient-golden);
-  color: white;
+  color: var(--text-on-primary);
   box-shadow: var(--shadow-warm);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary:hover:not(:disabled) {
-  box-shadow: var(--shadow-strong);
-  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-xl), 0 0 20px rgba(245, 158, 11, 0.3);
+  transform: translateY(-4px) scale(1.03);
+  background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 50%, #d97706 100%);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--glass-bg);
   color: var(--text-primary);
-  border: 2px solid var(--border-accent);
+  border: 2px solid var(--border-color);
   backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover:not(:disabled) {
   border-color: var(--primary-color);
   color: var(--primary-color);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-warm);
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn-success {
   background: var(--gradient-fresh);
-  color: white;
-  box-shadow: var(--shadow-warm);
+  color: var(--text-on-primary);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-success:hover:not(:disabled) {
-  box-shadow: var(--shadow-strong);
-  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-xl), 0 0 20px rgba(16, 185, 129, 0.3);
+  transform: translateY(-4px) scale(1.03);
+  background: linear-gradient(135deg, #6ee7b7 0%, #10b981 50%, #059669 100%);
 }
 
 .btn-danger {
@@ -1245,32 +1318,31 @@ body::before {
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(20px);
-  padding: 2rem 1.5rem;
-  border-radius: 20px;
-  box-shadow: var(--shadow-medium);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
   text-align: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  transform: rotate(-0.5deg);
+  transform: translateY(0);
+  width: 100%;
 }
 
 .stat-card:nth-child(2n) {
-  transform: rotate(0.3deg);
-  margin-top: 10px;
+  transform: translateY(0);
 }
 
 .stat-card:nth-child(3n) {
-  transform: rotate(-0.2deg);
-  margin-top: -5px;
+  transform: translateY(0);
 }
 
 .stat-card:nth-child(4n) {
-  transform: rotate(0.4deg);
-  margin-top: 5px;
+  transform: translateY(0);
 }
 
 .stat-card::before {
@@ -1284,8 +1356,10 @@ body::before {
 }
 
 .stat-card:hover {
-  transform: rotate(0deg) translateY(-8px);
-  box-shadow: var(--shadow-strong);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--border-accent);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .stat-value {
@@ -1415,6 +1489,7 @@ body::before {
     padding: 0 1rem;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
   }
   
   .nav-menu {
@@ -1422,8 +1497,16 @@ body::before {
     justify-content: center;
   }
   
+  .main-content {
+    padding: 1rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
   .page-container {
     padding: 1rem;
+    width: 100%;
+    margin: 0 auto;
   }
   
   .card-content {
