@@ -1,0 +1,7 @@
+2025-11-14 18:28:56,769 - steamnoodles_api - INFO - startup_event:112 - Starting SteamNoodles Feedback Agent API
+2025-11-14 18:28:56,769 - steamnoodles_api - INFO - startup_event:113 - Processed data path: data/processed_reviews.csv
+2025-11-14 18:28:56,769 - steamnoodles_api - INFO - startup_event:114 - Raw data path: data/raw_reviews.csv
+2025-11-14 18:31:42,415 - steamnoodles_api - INFO - root:49 - Root endpoint accessed
+2025-11-14 19:20:40,121 - steamnoodles_api - INFO - startup_event:112 - Starting SteamNoodles Feedback Agent API
+2025-11-14 19:20:40,121 - steamnoodles_api - INFO - startup_event:113 - Processed data path: data/processed_reviews.csv
+2025-11-14 19:20:40,121 - steamnoodles_api - INFO - startup_event:114 - Raw data path: data/raw_reviews.csv
