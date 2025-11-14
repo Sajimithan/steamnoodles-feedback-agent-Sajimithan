@@ -139,15 +139,17 @@ body::before {
   box-sizing: border-box;
 }
 
-/* Modern Header with Glass Morphism */
+/* Modern Header with Glass Morphism - Fixed Position */
 .app-header {
   background: var(--glass-bg);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border-color);
   box-shadow: var(--shadow-sm);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 1.25rem 0;
@@ -266,6 +268,7 @@ body::before {
 .main-content {
   flex: 1;
   padding: 2rem;
+  padding-top: calc(2rem + 80px); /* Add padding-top to account for fixed header */
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
@@ -1216,6 +1219,7 @@ body::before {
   
   .main-content {
     padding: 1rem;
+    padding-top: calc(1rem + 80px); /* Account for fixed header on mobile */
   }
   
   .stats-grid {
